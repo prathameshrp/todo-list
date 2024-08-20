@@ -6,9 +6,52 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-    Webpack Template All Set Up!
-    </h1>
-    <script src="./todoHandler.js" type="module"></script>
+  <header id="main-header">
+    <span>Fancy logo</span>
+    <span>
+        <span>Profile Photo</span>
+        <span><button>About</button>
+    </span>
+
+    </span>
+  </header>
+  
+  <nav id="list-navigator">
+<ul>
+    <li><button>List1</button></li>
+    <li><button>List2</button></li>
+    <li><button>List3</button></li>
+    <li><button>Add Project</button></li>
+</ul>
+  </nav>
+  <dialog>
+    <form action="#" method="dialog">
+    <p>
+        <label for="project-title">Project Title:</label>
+        <input type="text" name="project_name" id="project-title" required>
+    </p>
+
+    <p>
+        <input type="submit" value="close" class="close-btn app-btn" formnovalidate id="closeDialog" />
+
+        <input type="submit" value="submit" class="submit-btn app-btn" />
+      </p>
+</form>
+  </dialog>
+  <aside id="side-column">
+    Settings come in this page
+  </aside>
+  <main id="main-area">
+main lists come here
+  </main>
+
+  <section id="after-main">
+Add button for lists come here
+  </section>
+
+  <footer id="universal-footer">
+footer
+  </footer>
+  <script src="./index.js" type="module"></script>
 </body>
 </html>
