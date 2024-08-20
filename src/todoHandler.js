@@ -1,3 +1,24 @@
+class ToDoList
+{
+    constructor(listTitle)
+    {
+        this.listTitle = listTitle;
+        this.allTasks = [];
+    }
+    createTask() {
+        const newTask = promptUser();
+        this.allTasks.push(newTask);
+    }
+
+    printAllTasks()
+    {
+        this.allTasks.forEach((task)=>{
+            console.log(task.title);
+            console.log(task.getDate());
+            console.log(task.getDescription());
+            });
+    }
+}
 class ToDoTask
 {
     constructor(taskTitle)
@@ -25,23 +46,19 @@ class ToDoTask
     }
 }
 
-function printToDos()
+
+function promptUser()
 {
-    allTasks.forEach((task)=>{
-    console.log(task.title);
-    console.log(task.getDate());
-    console.log(task.getDescription());
-    });
-
-}
-
-const allTasks = [];
-function createTask() {
     const t = prompt("Enter title: ", );
     const d = prompt("Enter description: ", );
     const date = new Date();
     const newTask = new ToDoTask(t);
     newTask.setDescription(d);
     newTask.setDate(date);
-    allTasks.push(newTask);
+    return newTask;
 }
+
+// const today = new ToDoList("Today");
+// const tomorrow = new ToDoList("Tomorrow");
+///test code ^
+
