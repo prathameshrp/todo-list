@@ -10,8 +10,10 @@
     --theme-secondary-color: #ffffff;
     --theme-contrast-color: #000000;
     --theme-substitue-color: #c3c6d1;
-    --hero-font: 'quicksand';
-    --content-font: 'cantarell';
+    --theme-contrast-dull: #2a2b2b;
+    --hero-font: "quicksand";
+    --content-font: "cantarell";
+    --font-resizer: calc(0.5rem + 0.6vw + 0.2vh);
 }
 
 body{
@@ -101,7 +103,7 @@ img
 {
     font-family: var(--content-font), sans-serif;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 12fr 1fr;
     height: calc(100vh - clamp(40px, 10vh, 80px));
 }
@@ -198,7 +200,6 @@ img
     background-color: var(--theme-contrast-color);
     position: absolute;
     top: 20%;
-
     right: 0;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -225,10 +226,70 @@ img
 #side-column
 {
     /* grid-area: side-menu; */
-    background-color: yellow;
+    background-color: var(--theme-primary-color);
     grid-column: 1/2;
     grid-row: 2/5;
+    padding: calc(0.5rem + var(--font-resizer));
+    box-shadow: 7px 2px 3px rgba(0, 0, 0, 0.11);
+    z-index: 2;
 
+
+}
+#side-project-menu .general-heading
+{
+    margin: max(2px, 0.5vw) max(4px, 1vw);
+    font-size: calc(0.7rem + var(--font-resizer));
+
+}
+#all-projects
+{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 1px solid salmon; */
+    margin-top: 10%;
+    font-weight: bolder;
+}
+
+#all-projects li
+{
+    min-width: fit-content;
+    width: max(100px, 80%);
+    background-color: var(--theme-contrast-dull);
+    height: clamp(20px, 5vh, 60px);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+#all-projects li button
+{
+    min-width: fit-content;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: calc(0.2rem + var(--font-resizer));
+    min-height: 100%;
+    color: var(--theme-secondary-color);
+}
+
+#all-projects li:last-child
+{
+    opacity: 0.6;
+}
+#all-projects li:hover
+{
+    background-color: var(--theme-contrast-color);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
 }
 
 /* list area */
