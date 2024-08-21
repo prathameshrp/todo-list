@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root
+{
+    --light-theme-primary-color: #EDF0F0;
+    --light-theme-secondary-color: #ffffff;
+    --light-theme-contrast-color: #000000
+
+}
+
+body{
+    background-color: var(--light-theme-primary-color);
+}
+
+img
+{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+#burger-icon
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: calc(1.99rem + 0.9vw + 0.6vh);
+    width: calc(1.99rem + 0.9vw + 0.6vh);
+    min-height: 1rem;
+    max-height: 100px;
+    min-width: 1rem;
+    max-width: 100px;
+    /* background-color: black; */
+    gap: 5px;
+}
+
+#burger-icon .line
+{
+    background-color: var(--light-theme-contrast-color);
+    width: 80%;
+    border-radius: 4px;
+    height: 10%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+#burger-icon .line1
+{
+    width: 80%;
+}#burger-icon .line2
+{
+    width: 60%;
+}#burger-icon .line3
+{
+    width: 40%;
+}
+#main-header
+{
+    /* height: 50px; */
+    /* height: 80px; */
+    height: clamp(40px, 10vh, 80px);
+    width: 100vw;
+    background-color: var(--light-theme-secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 clamp(30px, 10%,100px);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.11);
+ 
+}
+
+.logo
+{
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(0.8rem + 1.4vw + 0.3vh);
+}
+.n-logo
+{
+   height: calc(3.99rem + 0.9vw + 0.6vh);
+   min-height: 1rem;
+   max-height: 100px;
+   width: auto;
+}
+.avatar
+{
+    height: calc(1.5rem + 0.6vw + 0.2vh);
+    width: calc(1.5rem + 0.6vw + 0.2vh);
+    display: inline-block;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: var(--light-theme-secondary-color);
+}
+
+.corner-profile
+{
+    /* background-color: rgba(137, 43, 226, 0.267); */
+    display: flex;
+    list-style-type: none;
+    gap: 0.5em;
+}
+
+.corner-profile .info-btn
+{
+    background-color: transparent;
+    border: none;
+    padding: auto;
+}
+.corner-profile .info-btn i
+{
+    font-size: calc(1.3rem + 0.6vw + 0.2vh);
+}
+
+.corner-profile li
+{
+    padding: 0 1vw;
+}
