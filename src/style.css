@@ -6,14 +6,14 @@
 
 :root
 {
-    --light-theme-primary-color: #EDF0F0;
-    --light-theme-secondary-color: #ffffff;
-    --light-theme-contrast-color: #000000
-
+    --theme-primary-color: #EDF0F0;
+    --theme-secondary-color: #ffffff;
+    --theme-contrast-color: #000000;
+    --theme-substitue-color: #c3c6d1;
 }
 
 body{
-    background-color: var(--light-theme-primary-color);
+    background-color: var(--theme-primary-color);
 }
 
 img
@@ -29,26 +29,24 @@ img
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: calc(1.99rem + 0.9vw + 0.6vh);
-    width: calc(1.99rem + 0.9vw + 0.6vh);
-    min-height: 1rem;
-    max-height: 100px;
-    min-width: 1rem;
+    height: 100%;
+    width: 100%;
+    min-width: 2rem;
     max-width: 100px;
     /* background-color: black; */
-    gap: 5px;
 }
 
 #burger-icon .line
 {
-    background-color: var(--light-theme-contrast-color);
+    background-color: var(--theme-contrast-color);
     width: 80%;
+    height: 3px;   
     border-radius: 4px;
-    height: 10%;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    margin: 2px 0;
 }
 #burger-icon .line1
 {
@@ -66,7 +64,7 @@ img
     /* height: 80px; */
     height: clamp(40px, 10vh, 80px);
     width: 100vw;
-    background-color: var(--light-theme-secondary-color);
+    background-color: var(--theme-secondary-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,7 +99,7 @@ img
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
-    background-color: var(--light-theme-secondary-color);
+    background-color: var(--theme-secondary-color);
 }
 
 .corner-profile
@@ -167,14 +165,18 @@ img
     width: max-content;
     max-width: fit-content;
     padding: 0 3%;
-    
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 #list-navigator ul li::after
 {
     content: " ";
     height: 60%;
     width: 2px;
-    background-color: var(--light-theme-contrast-color);
+    background-color: var(--theme-contrast-color);
     position: absolute;
     top: 20%;
 
@@ -189,4 +191,13 @@ img
 #list-navigator ul li:last-child
 {
     opacity: 0.3;
+}
+#list-navigator ul li:hover
+{
+    background-color: var(--theme-substitue-color);
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
 }
