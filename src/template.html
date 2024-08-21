@@ -1,76 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/caec046269.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/caec046269.js" crossorigin="anonymous"></script>
+  <title>Document</title>
 </head>
+
 <body>
   <header id="main-header">
- 
+
     <div class="logo">
-    <img class="n-logo" src="../assets/icons/N.png" alt="main logo">
-    <span>Neo.do</span>
-  </div>
+      <img class="n-logo" src="../assets/icons/N.png" alt="main logo">
+      <span>Neo.do</span>
+    </div>
     <ul class="corner-profile">
-        <!-- <li class="avatar"></li> -->
-        <li><a class="info-btn"><i class="fa-solid fa-circle-info"></i></a></li>
-        <li><a class="info-btn"><i class="fa-brands fa-github"></i></a></li>
-        <li><a class="info-btn"><i class="fa-solid fa-moon"></i></a></li>
+      <!-- <li class="avatar"></li> -->
+      <li><a class="info-btn"><i class="fa-solid fa-circle-info"></i></a></li>
+      <li><a class="info-btn"><i class="fa-brands fa-github"></i></a></li>
+      <li><a class="info-btn"><i class="fa-solid fa-moon"></i></a></li>
     </ul>
 
     </span>
   </header>
-  
+
 
   <main id="container">
+    <div id="navbar-container">
+      <nav id="list-navigator">
+        <ul>
+          <li id="project-menu-btn">
+            <div id="burger-icon">
+              <div class="line line1"></div>
+              <div class="line line2"></div>
+              <div class="line line3"></div>
+            </div>
+          </li>
+          <li><button>List1</button></li>
+          <li><button>List2</button></li>
+          <li><button>List3</button></li>
+          <li><button>+</button></li>
+        </ul>
 
-  <nav id="list-navigator">
-<ul>
-  <li id="project-menu-btn">
-    <div id="burger-icon">
-      <div class="line line1"></div>
-      <div class="line line2"></div>
-      <div class="line line3"></div>
+      </nav>
+      <dialog class="dialog-box list-dialog">
+        <form action="#" method="dialog">
+          <p>
+            <label for="list-title">Project Title:</label>
+            <input type="text" name="list_name" id="list-title" required>
+          </p>
+
+          <p>
+            <input type="submit" value="close" class="close-btn app-btn" formnovalidate id="closeDialog" />
+
+            <input type="submit" value="submit" class="submit-btn app-btn" />
+          </p>
+        </form>
+      </dialog>
     </div>
-  </li>
-    <li><button>List1</button></li>
-    <li><button>List2</button></li>
-    <li><button>List3</button></li>
-    <li><button>+</button></li>
-</ul>
-  </nav>
 
-  <dialog>
-    <form action="#" method="dialog">
-    <p>
-        <label for="project-title">Project Title:</label>
-        <input type="text" name="project_name" id="project-title" required>
-    </p>
 
-    <p>
-        <input type="submit" value="close" class="close-btn app-btn" formnovalidate id="closeDialog" />
+    <aside id="side-column">
+      <section id="side-projec-menu">
+      Settings come in this page
+      </section>
+      <dialog class="dialog-box project-dialog">
+        <form action="#" method="dialog">
+          <p>
+            <label for="project-title">Project Title:</label>
+            <input type="text" name="project_name" id="project-title" required>
+          </p>
 
-        <input type="submit" value="submit" class="submit-btn app-btn" />
-      </p>
-</form>
-  </dialog>
-  <aside id="side-column">
-    Settings come in this page
-  </aside>
-  <main id="main-area">
-main lists come here
-  </main>
+          <p>
+            <input type="submit" value="close" class="close-btn app-btn" formnovalidate id="closeDialog" />
 
-  <section id="after-main">
+            <input type="submit" value="submit" class="submit-btn app-btn" />
+          </p>
+        </form>
+      </dialog>
+    </aside>
+
+    <main id="main-area">
+      <section id="main-lists-area">
+      main lists come here
+    </section>
+    </main>
+
+    <!-- <section id="after-main">
 Add button for lists come here
-  </section>
+  </section> -->
+
+
+    <footer id="universal-footer">
+      footer
+    </footer>
 
   </main>
-  <footer id="universal-footer">
-footer
-  </footer>
   <!-- <script src="./index.js" type="module"></script> -->
 </body>
+
 </html>
