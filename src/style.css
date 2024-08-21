@@ -388,12 +388,14 @@ img
     margin: 5% clamp(30px, 5vw, 40px);
     position: relative;
     padding-left: calc(clamp(10px, 2vw, 15px)  + 0.2rem);
+     font-size: calc(0.1rem + var(--font-resizer));
 }
+
 #list dl dd::before
 {
     content: " ";
-    height: clamp(5px, 1vw, 10px);
-    width: clamp(5px, 1vw, 10px);
+    height: clamp(5px, 1.2vw, 10px);
+    width: clamp(5px, 1.2vw, 10px);
     background-color: var(--theme-contrast-color);
     border-radius: 50%;
     position: absolute;
@@ -406,7 +408,23 @@ img
 #universal-footer
 {
     /* grid-area: footer; */
-    background-color: aquamarine;
+    background-color: var(--theme-contrast-color);
     grid-column: 1/5;
     grid-row: 5/6;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.404);
+    z-index: 4;
+    color: var(--theme-substitue-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
 }
+#universal-footer pre a{
+    color: var(--theme-substitue-color);
+}
+
+#universal-footer pre {
+    display: flex;
+    align-items: center;
+}
+
