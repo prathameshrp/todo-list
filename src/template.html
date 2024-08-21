@@ -18,7 +18,7 @@
     <ul class="corner-profile">
       <!-- <li class="avatar"></li> -->
       <li><a class="info-btn"><i class="fa-solid fa-circle-info"></i></a></li>
-      <li><a class="info-btn"><i class="fa-brands fa-github"></i></a></li>
+      <li><a href="https://github.com/prathameshrp/todo-list" target="_blank" class="info-btn"><i class="fa-brands fa-github"></i></a></li>
       <li><a class="info-btn"><i class="fa-solid fa-moon"></i></a></li>
     </ul>
 
@@ -47,7 +47,7 @@
       <dialog class="dialog-box list-dialog">
         <form action="#" method="dialog">
           <p>
-            <label for="list-title">Project Title:</label>
+            <label for="list-title">New list name:</label>
             <input type="text" name="list_name" id="list-title" required>
           </p>
 
@@ -102,9 +102,31 @@
         <dl>
           <dt>Study</dt>
           <dd>Study biology</dd>
+
+          <dt>+</dt>
         </dl>
       </div>
     </section>
+
+
+    <dialog class="dialog-box project-dialog">
+      <form action="#" method="dialog">
+        <p>
+          <label for="task-title">Task:</label>
+          <input type="text" name="task_name" id="task-title" required>
+        </p>
+        <p>
+          <label for="task-desc">Description:</label>
+          <input type="text" name="task_description" id="task-desc" required>
+        </p>
+
+        <p>
+          <input type="submit" value="close" class="close-btn app-btn" formnovalidate id="closeDialog" />
+
+          <input type="submit" value="submit" class="submit-btn app-btn" />
+        </p>
+      </form>
+    </dialog>
     </main>
 
     <!-- <section id="after-main">

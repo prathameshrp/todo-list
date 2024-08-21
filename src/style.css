@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--theme-contrast-color);
 }
 
 :root
@@ -402,6 +403,29 @@ img
     left: 0;
     top: calc(clamp(10px, 2vw, 15px)/2);
 
+}
+
+#list dt:last-child
+{
+    opacity: 0.5;
+    border: 1px solid rgba(0, 0, 0, 0.418);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    text-align: center;
+    padding: 0;
+    margin-top: 5vh;
+}
+#list dt:last-child::before
+{
+    border: none;
+}
+
+#list dt:last-child:hover
+{
+    background-color: var(--theme-substitue-color);
 }
 /* footer */
 
