@@ -332,6 +332,7 @@ img
 #list
 {
     height: fit-content;
+    width: fit-content;
     border: 1px outset var(--theme-contrast-color);
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -341,10 +342,11 @@ img
     margin: 3% 0;
     position: relative;
     padding: max(20px, 3%) 3%;
+    box-shadow: 3px 3px var(--theme-contrast-dull);
 }
 #list::before
 {
-    content: "...";
+    content: "....";
     font-family: monospace;
     background-color: var(--theme-contrast-dull);
     color: var(--theme-substitue-color);
@@ -360,6 +362,44 @@ img
     top: 0;
     left: 0;
    right: 0;
+}
+
+#list dl dt
+{
+    font-weight: bold;
+    position: relative;
+    font-size: calc(0.2rem + var(--font-resizer));
+    padding-left: calc(clamp(10px, 2vw, 15px)  + 0.5rem);
+}
+#list dl dt::before
+{
+    content: " ";
+    height: clamp(10px, 2vw, 15px);
+    width: clamp(10px, 2vw, 15px);
+    border: 2px solid salmon;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: calc(clamp(10px, 2vw, 15px)/2);
+}
+
+#list dl dd
+{
+    margin: 5% clamp(30px, 5vw, 40px);
+    position: relative;
+    padding-left: calc(clamp(10px, 2vw, 15px)  + 0.2rem);
+}
+#list dl dd::before
+{
+    content: " ";
+    height: clamp(5px, 1vw, 10px);
+    width: clamp(5px, 1vw, 10px);
+    background-color: var(--theme-contrast-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: calc(clamp(10px, 2vw, 15px)/2);
+
 }
 /* footer */
 
