@@ -111,7 +111,7 @@ img
 /* Nav bar */
 #navbar-container
 {
-    grid-column: 1/5;
+    grid-column: 2/5;
     grid-row: 1/1;
 }
 #list-navigator
@@ -225,20 +225,19 @@ img
 /* aside-section */
 #side-column
 {
-    /* grid-area: side-menu; */
-    background-color: var(--theme-primary-color);
+    /*grid-area: side-menu;
+    */background-color: var(--theme-primary-color);
     grid-column: 1/2;
-    grid-row: 2/5;
+    grid-row: 1/5;
     padding: calc(0.5rem + var(--font-resizer));
     box-shadow: 7px 2px 3px rgba(0, 0, 0, 0.11);
     z-index: 2;
-
-
+    /* overflow-x: hidden; */
 }
 #side-project-menu .general-heading
 {
-    margin: max(2px, 0.5vw) max(4px, 1vw);
-    font-size: calc(0.7rem + var(--font-resizer));
+    margin: max(2px, 0.3vw) max(4px, 0.5vw);
+    font-size: calc(0.6rem + var(--font-resizer));
 
 }
 #all-projects
@@ -291,6 +290,7 @@ img
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
 }
+
 
 /* list area */
 
