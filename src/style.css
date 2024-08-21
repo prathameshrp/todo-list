@@ -330,7 +330,7 @@ img
     margin: 0 5%;
 }
 
-#list
+#list-container
 {
     height: fit-content;
     width: fit-content;
@@ -345,7 +345,7 @@ img
     padding: max(20px, 3%) 3%;
     box-shadow: 3px 3px var(--theme-contrast-dull);
 }
-#list::before
+#list-container::before
 {
     content: "....";
     font-family: monospace;
@@ -365,14 +365,14 @@ img
    right: 0;
 }
 
-#list dl dt
+#list dt
 {
     font-weight: bold;
     position: relative;
     font-size: calc(0.2rem + var(--font-resizer));
     padding-left: calc(clamp(10px, 2vw, 15px)  + 0.5rem);
 }
-#list dl dt::before
+#list dt::before
 {
     content: " ";
     height: clamp(10px, 2vw, 15px);
@@ -384,7 +384,7 @@ img
     top: calc(clamp(10px, 2vw, 15px)/2);
 }
 
-#list dl dd
+#list dd
 {
     margin: 5% clamp(30px, 5vw, 40px);
     position: relative;
@@ -392,7 +392,7 @@ img
      font-size: calc(0.1rem + var(--font-resizer));
 }
 
-#list dl dd::before
+#list dd::before
 {
     content: " ";
     height: clamp(5px, 1.2vw, 10px);
@@ -405,7 +405,7 @@ img
 
 }
 
-#list dt:last-child
+#add-task
 {
     opacity: 0.5;
     border: 1px solid rgba(0, 0, 0, 0.418);
@@ -417,13 +417,10 @@ img
     text-align: center;
     padding: 0;
     margin-top: 5vh;
-}
-#list dt:last-child::before
-{
-    border: none;
+  
 }
 
-#list dt:last-child:hover
+#dd-task:hover
 {
     background-color: var(--theme-substitue-color);
 }
@@ -449,6 +446,7 @@ img
 
 #universal-footer pre {
     display: flex;
+    color: var(--theme-substitue-color);
     align-items: center;
 }
 

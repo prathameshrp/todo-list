@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/caec046269.js" crossorigin="anonymous"></script>
-  <title>Document</title>
+  <title>Neo.do</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
         </ul>
 
       </nav>
-      <dialog class="dialog-box list-dialog">
+      <dialog class="dialog-box" id="list-dialog">
         <form action="#" method="dialog">
           <p>
             <label for="list-title">New list name:</label>
@@ -97,19 +97,20 @@
         <span id="date">01 October 2023</span>
         <span id="time">15:57</span>
       </div>
-      <div id="list">
+      <dl id="list-container">
 
-        <dl>
+        <dl id="list">
           <dt>Study</dt>
           <dd>Study biology</dd>
 
-          <dt>+</dt>
         </dl>
+        
+        <div id="add-task" listIndex=0>+</div>
       </div>
     </section>
 
 
-    <dialog class="dialog-box project-dialog">
+    <dialog class="dialog-box" id="task-dialog">
       <form action="#" method="dialog">
         <p>
           <label for="task-title">Task:</label>
@@ -123,7 +124,7 @@
         <p>
           <input type="submit" value="close" class="close-btn app-btn" formnovalidate id="closeDialog" />
 
-          <input type="submit" value="submit" class="submit-btn app-btn" />
+          <input type="submit" value="submit" class="submit-btn app-btn" id="submit-task" />
         </p>
       </form>
     </dialog>
