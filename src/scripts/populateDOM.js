@@ -1,5 +1,14 @@
 
-export default function populateSideBarDOM()
+export default function insertProjects(projectManager)
+{
+    const data = generateFakeContent();
+    
+    data["projects"].forEach(project => {
+        projectManager.addProject(project["name"]);
+    });
+}
+
+function populateSideBarDOM()
 {
     const content = generateFakeContent();
     const projects = content.projectNames;
@@ -12,6 +21,7 @@ export default function populateSideBarDOM()
         const pli = document.createElement('li');
         const pbtn = document.createElement('button');
         pbtn.textContent = projects[i];
+        
         pli.setAttribute('project-index', i);
         pli.addEventListener("click", ()=>
             {populateNavigatorList(i, lists[i], tasks[i])})
@@ -67,33 +77,126 @@ function populateListTask(todoIndex, tasks)
 
 }
 
-
 function generateFakeContent()
 {
-    const projectNames = ["Neo.do", "Default"];
-
-    const projectLists = [["Productivity", "Exercise", "Dailies"], 
-                          ["Today", "Tomorrow", "Weekly Todos'"]];
-
-    const projectTasks = [
-        [
-            [["Create To Dos", "Easy to create"], ["Manage To Dos", "Effectively manage ToDos"], ["Set Descriptions", "Like This, Lorem Ipsum? Hyderate yoursel"]],
-
-            [["Drink Water", ""], ["Run for 30mins", ""]], 
-            
-            [["Buy Milk", ""], ["Cook breakfast", ""]]
-        ], 
-        [
-            [["Study Biology", "Atleast for 30mins"], ["Lie on floor", "Think about life"]], 
-            
-            [["Attend lectures"], ["Buy something sweet", "Preferbally pineapple pastry"]], 
-            
-            [["Enjoy Holidays", ""]]
+    const data = {
+        "projects": [
+            {
+                "name": "Neo.do",
+                "lists": [
+                    {
+                        "name": "Productivity",
+                        "tasks": [
+                            {
+                                "name": "Create To Dos",
+                                "description": "Easy to create",
+                                "priority": null,
+                                "due_date": null
+                            },
+                            {
+                                "name": "Manage To Dos",
+                                "description": "Effectively manage ToDos",
+                                "priority": null,
+                                "due_date": null
+                            },
+                            {
+                                "name": "Set Descriptions",
+                                "description": "Like This, Lorem Ipsum? Hyderate yourself",
+                                "priority": null,
+                                "due_date": null
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Exercise",
+                        "tasks": [
+                            {
+                                "name": "Drink Water",
+                                "description": "",
+                                "priority": null,
+                                "due_date": null
+                            },
+                            {
+                                "name": "Run for 30mins",
+                                "description": "",
+                                "priority": null,
+                                "due_date": null
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Dailies",
+                        "tasks": [
+                            {
+                                "name": "Buy Milk",
+                                "description": "",
+                                "priority": null,
+                                "due_date": null
+                            },
+                            {
+                                "name": "Cook breakfast",
+                                "description": "",
+                                "priority": null,
+                                "due_date": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Default",
+                "lists": [
+                    {
+                        "name": "Today",
+                        "tasks": [
+                            {
+                                "name": "Study Biology",
+                                "description": "At least for 30mins",
+                                "priority": null,
+                                "due_date": null
+                            },
+                            {
+                                "name": "Lie on floor",
+                                "description": "Think about life",
+                                "priority": null,
+                                "due_date": null
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Tomorrow",
+                        "tasks": [
+                            {
+                                "name": "Attend lectures",
+                                "description": null,
+                                "priority": null,
+                                "due_date": null
+                            },
+                            {
+                                "name": "Buy something sweet",
+                                "description": "Preferably pineapple pastry",
+                                "priority": null,
+                                "due_date": null
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Weekly Todos'",
+                        "tasks": [
+                            {
+                                "name": "Enjoy Holidays",
+                                "description": "",
+                                "priority": null,
+                                "due_date": null
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
-
-];
-
-    return {projectNames, projectLists, projectTasks};
+    }
+    
+    return data;
 }
 
 
