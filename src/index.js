@@ -33,10 +33,11 @@ for(let i = 0; i<projects.length; ++i)
 
 const headerTitle = document.querySelector("#list-header");
 console.log(headerTitle);
-function displayCurrentList(list)
+function displayCurrentList(list, index)
 {
     const tasks = list.getAllTasks();
     headerTitle.textContent = list.getListName();
+    addTaskBtn.setAttribute("active-list", index);
 
     currentList.replaceChildren();
 for(let i = 0; i< tasks.length; ++i)
@@ -62,7 +63,7 @@ for(let i = 0; i<allToDos.length; ++i)
     li.setAttribute('list-index', i);
     li.addEventListener("click", (e)=>
 {
-    displayCurrentList(allToDos[i]);
+    displayCurrentList(allToDos[i], i);
 }    
     )
     lbtn.textContent = projects[0].listName(i);
@@ -107,7 +108,8 @@ submitTaskBtn.addEventListener("click", (e)=>
     e.stopPropagation();
     const title = taskDialog.querySelector("#task-title");
     const desc = taskDialog.querySelector("#task-desc");
-
+    const index = addTaskBtn.getAttribute("active-list");
+    projects[0].getAllTodos()[index].createTask(title.value, desc.value);
     appendToList(title.value, desc.value);
 
 })
