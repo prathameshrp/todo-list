@@ -2,7 +2,7 @@ import "../assets/fonts/stylesheet.css"
 import "./style.css"
 import { Project } from "./scripts/projectHandler.js";
 import { ToDoList } from "./scripts/ListHandler.js";
-import placeholderContent, {populateDOM, populateNavigatorList, populateListTask, populateNewProject} from "./scripts/populateDOM.js";
+import placeholderContent, {populateDOM, populateNavigatorList, populateListTask, populateNewProject, populateNewList} from "./scripts/populateDOM.js";
 
 class ProjectManager
 {
@@ -66,6 +66,12 @@ const runApp = (function (doc){
         e.stopPropagation();
         openProjectModal();
     })
+
+    const addListButton = doc.querySelector("#add-list");
+    addListButton.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        openListModal();
+    })
 })(document);
 
 function openProjectModal()
@@ -96,7 +102,45 @@ function addNewProject()
     // populateDOM(ProjectManager.getAllProjects());
     // populateNavigatorList(newProject.getLists());
     populateNewProject(newProject, ProjectManager.getAllProjects().length-1);
+    const projectDialog = document.querySelector("#project-dialog");
+    projectDialog.close();
+
+}
+
+function openListModal()
+{
+    const listDialog = document.querySelector("#list-dialog");
+    listDialog.showModal();
+
+    const submitBtn = document.querySelector("#submit-list");
+    submitBtn.addEventListener("click", (e)=>
+    {
+        e.stopPropagation();
+    // add project to backend logic:
+    
+    addNewList();
+    }
+    )
+    
+}
+
+function addNewList()
+{
+
+//add to array
+    const activeProject = document.querySelector("#add-list").getAttribute("active-project");
+    const listNameEle = document.querySelector("#list-title");
+    const newListName = listNameEle.value;
+    const newList = new ToDoList(newListName);
+    const listParentProject = ProjectManager.getAllProjects()[activeProject];
+    console.log("This Must be all projects", ProjectManager.getAllProjects());
+    console.log("This Must be index I am looking for", activeProject);
 
 
+    console.log("This Must be project", listParentProject);
+    listParentProject.createList(newList);
+    // populateDOM(ProjectManager.getAllProjects());
+    // populateNavigatorList(newProject.getLists());
+    populateNewList(listParentProject.getLists().length -1, newList);
 
 }

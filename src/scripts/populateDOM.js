@@ -20,10 +20,7 @@ function populateDOM(projects)
     // console.log(projects);
     // console.log("These are lists:", projects[0].getLists());
     populateNavigatorList(projects[0].getLists());
-
-
 }
-
 function populateNewProject(project, index)
 {
     const projectBar = document.querySelector("#all-projects");
@@ -34,30 +31,22 @@ function populateNewProject(project, index)
     
     pli.setAttribute('project-index', index);
     pli.addEventListener("click", ()=>
-        {populateNavigatorList(project.getLists())})
+        {populateNavigatorList(project.getLists(), index)})
     pli.appendChild(pbtn);
     projectBar.insertBefore(pli, addProjectBtn);
 }
 
-function populateNavigatorList(list)
+function populateNavigatorList(list, projectIndex)
 {    
    
-    const listNaviator = document.querySelector("#all-lists");
+    const listNavigator = document.querySelector("#all-lists");
     const addListBtn = document.querySelector("#add-list");
-    listNaviator.replaceChildren(addListBtn);
+    addListBtn.setAttribute("active-project", projectIndex);
+    listNavigator.replaceChildren(addListBtn);
+    addListBtn.setAttribute("active-project", projectIndex);
     for(let i = 0; i<list.length; ++i)
         {
-            const lli = document.createElement('li');
-            const lbtn = document.createElement('button');
-            lli.setAttribute("list-index", i);
-
-            lli.addEventListener("click", ()=>
-            {
-                populateListTask(i, list[i].getAllTasks());
-            })
-            lbtn.textContent = list[i].getListName();
-            lli.appendChild(lbtn);
-            listNaviator.insertBefore(lli, addListBtn);
+            populateNewList(i, list[i])
         // console.log(list[i]);
 
         }
@@ -70,6 +59,24 @@ function populateNavigatorList(list)
     {
         return;
     }
+}
+
+function populateNewList(index, list)
+{
+    const listNavigator = document.querySelector("#all-lists");
+    const addListBtn = document.querySelector("#add-list");
+
+    const lli = document.createElement('li');
+    const lbtn = document.createElement('button');
+    lli.setAttribute("list-index", index);
+
+    lli.addEventListener("click", ()=>
+            {
+                populateListTask(index, list.getAllTasks());
+            })
+    lbtn.textContent = list.getListName();
+    lli.appendChild(lbtn);
+    listNavigator.insertBefore(lli, addListBtn);
 }
 
 
@@ -216,4 +223,4 @@ export default function generateFakeContent()
 }
 
 
-export {populateDOM, populateNavigatorList, populateListTask, populateNewProject};
+export {populateDOM, populateNavigatorList, populateListTask, populateNewProject, populateNewList};
