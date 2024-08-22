@@ -1,31 +1,32 @@
-import {ToDoList} from "./todoHandler.js";
-import promptUser from "./inputHandler.js";
+import {ToDoList} from "./ListHandler.js";
+
 class Project
 {
-    
-    constructor(projectTitle)
+    #projectTitle;
+    #todoListsInThisProject = [];
+    constructor(projectTitle = "New Project")
     {
-        this.projectTitle = projectTitle;
-        this.allToDoLists = [];
+        this.#projectTitle = projectTitle;
     }
-    createList(listTitle) {
+
+    createList(listTitle = "New List") {
         // const Obj = promptUser();
         const newList = new ToDoList(listTitle);
         // newList.setDescription(Obj.d);
         // newList.setDate(Obj.date);
-        this.allToDoLists.push(newList);
+        this.#todoListsInThisProject.push(newList);
     }
     getProjectName()
     {
-        return this.projectTitle;
+        return this.#projectTitle;
     }
 
-    getAllTodos()
+    getLists()
     {
-        return this.allToDoLists;
+        return [...this.#todoListsInThisProject];
     }
 
-    listName(index)
+    nameOfList(index)
     {
         return this.allToDoLists[index].getListName();
     }
