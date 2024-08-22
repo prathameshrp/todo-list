@@ -22,3 +22,8 @@ class ProjectManager
         return [...this.#projectsInStorage];
     }
 }
+
+function populateDOM()
+{
+    
+}
