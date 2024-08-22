@@ -37,7 +37,8 @@ function populateSideBarDOM()
         const pbtn = document.createElement('button');
         pbtn.textContent = projects[i];
         pli.setAttribute('project-index', i);
-        pli.addEventListener("click", populateNavigatorList(lists[i]))
+        pli.addEventListener("click", ()=>
+            {populateNavigatorList(lists[i])})
         pli.appendChild(pbtn);
         projecBar.insertBefore(pli, addProjectBtn);
     }
@@ -48,15 +49,18 @@ function populateSideBarDOM()
 function populateNavigatorList(list)
 {    
     const listNaviator = document.querySelector("#all-lists");
-    // listNaviator.replaceChildren();
+    const addListBtn = document.querySelector("#add-list");
+    listNaviator.replaceChildren(addListBtn);
     for(let i = 0; i<list.length; ++i)
         {
 
-            const addListBtn = document.querySelector("#add-list");
             const lli = document.createElement('li');
             const lbtn = document.createElement('button');
             lli.setAttribute("list-index", i);
-    
+            lbtn.textContent = list[i];
+            lli.appendChild(lbtn);
+            listNaviator.insertBefore(lli, addListBtn);
+
         }
 }
 populateSideBarDOM();
