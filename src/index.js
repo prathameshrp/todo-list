@@ -17,12 +17,14 @@ projects.push(newProject);
 
 const projectList = document.querySelector("#all-projects");
 const addProjectBtn = document.querySelector("#add-project");
+function populateProject()
+{
 for(let i = 0; i<projects.length; ++i)
 {
     const li = document.createElement('li');
     li.setAttribute("project-index", i);
     const pbtn = document.createElement('button');
-
+    // li.addEventListener("click", )
     pbtn.textContent = projects[i].getProjectName();
 
     li.appendChild(pbtn);
@@ -30,7 +32,7 @@ for(let i = 0; i<projects.length; ++i)
     // projectList.appendChild(li);
     projectList.insertBefore(li, addProjectBtn);
 }
-
+}
 const headerTitle = document.querySelector("#list-header");
 console.log(headerTitle);
 function displayCurrentList(list, index)
@@ -56,6 +58,7 @@ for(let i = 0; i< tasks.length; ++i)
 const allToDos = projects[0].getAllTodos();
 const addListBtn = document.querySelector("#add-list");
 const alllists = document.querySelector("#all-lists");
+
 for(let i = 0; i<allToDos.length; ++i)
 {
     const li = document.createElement('li');
@@ -187,3 +190,31 @@ function appendToList(title, desc) {
 //         mode = !mode;
 //     }
 // })
+
+// new project add logic
+
+
+
+const projectDialog = document.querySelector("#project-dialog");
+
+addProjectBtn.addEventListener("click", (e)=>
+{
+    e.stopPropagation();
+
+    projectDialog.showModal();
+})
+
+const submitProjectBtn = projectDialog.querySelector("#submit-project");
+
+submitProjectBtn.addEventListener("click", (e)=>{
+    e.stopPropagation();
+
+    const title = document.querySelector("#project-title");
+    const newProjectCreated = new Project(title.value);
+    projects.push(newProjectCreated);
+
+    console.log(projects.map(e=>e.getProjectName()));
+    populateProject();
+})
+
+
