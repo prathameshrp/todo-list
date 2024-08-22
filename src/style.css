@@ -337,6 +337,7 @@ img
     height: fit-content;
     width: fit-content;
     max-width: 100%;
+    min-width: clamp(100px, 45%, 250px);
     border: 1px outset var(--theme-contrast-color);
     border-radius: 4px;
     -webkit-border-radius: 4px;
