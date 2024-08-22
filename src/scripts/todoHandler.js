@@ -25,6 +25,10 @@ class ToDoList
             console.log(task.getDescription());
             });
     }
+    getListName()
+    {
+        return this.listTitle;
+    }
 }
 class ToDoTask
 {

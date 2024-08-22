@@ -7,6 +7,9 @@ import { Project } from "./scripts/projectHandler.js";
 // populating dom from js:
 const projects = [];
 const neodo = new Project("Neo.do");
+
+neodo.createList("Today");
+neodo.createList("Tomorrow");
 const newProject = new Project("Default");
 
 projects.push(neodo);
@@ -17,6 +20,7 @@ const addProjectBtn = document.querySelector("#add-project");
 for(let i = 0; i<projects.length; ++i)
 {
     const li = document.createElement('li');
+    li.setAttribute("project-index", i);
     const pbtn = document.createElement('button');
 
     pbtn.textContent = projects[i].getProjectName();
@@ -27,6 +31,21 @@ for(let i = 0; i<projects.length; ++i)
     projectList.insertBefore(li, addProjectBtn);
 }
 
+
+
+//Populating project:
+const allToDos = projects[0].getAllTodos();
+const addListBtn = document.querySelector("#add-list");
+const alllists = document.querySelector("#all-lists");
+for(let i = 0; i<allToDos.length; ++i)
+{
+    const li = document.createElement('li');
+    const lbtn = document.createElement('button');
+    li.setAttribute('list-index', i);
+    lbtn.textContent = projects[0].listName(i);
+    li.appendChild(lbtn);
+    alllists.insertBefore(li, addListBtn);
+}
 
 // Logic to create a new task in current list
 

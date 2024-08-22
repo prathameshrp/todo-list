@@ -8,16 +8,26 @@ class Project
         this.projectTitle = projectTitle;
         this.allToDoLists = [];
     }
-    createList() {
-        const Obj = promptUser();
-        const newList = new ToDoList(Obj.t);
-        newList.setDescription(Obj.d);
+    createList(listTitle) {
+        // const Obj = promptUser();
+        const newList = new ToDoList(listTitle);
+        // newList.setDescription(Obj.d);
         // newList.setDate(Obj.date);
         this.allToDoLists.push(newList);
     }
     getProjectName()
     {
         return this.projectTitle;
+    }
+
+    getAllTodos()
+    {
+        return this.allToDoLists;
+    }
+
+    listName(index)
+    {
+        return this.allToDoLists[index].getListName();
     }
 
 }
