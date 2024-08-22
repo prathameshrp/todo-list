@@ -15,17 +15,7 @@ function populateDOM(projects)
     
     for(let i = 0; i < projects.length; ++i)
     {
-        const projecBar = document.querySelector("#all-projects");
-        const addProjectBtn = document.querySelector("#add-project");
-        const pli = document.createElement('li');
-        const pbtn = document.createElement('button');
-        pbtn.textContent = projects[i].getProjectName();
-        
-        pli.setAttribute('project-index', i);
-        pli.addEventListener("click", ()=>
-            {populateNavigatorList(projects[i].getLists())})
-        pli.appendChild(pbtn);
-        projecBar.insertBefore(pli, addProjectBtn);
+     populateNewProject(projects[i], i);
     }
     // console.log(projects);
     // console.log("These are lists:", projects[0].getLists());
@@ -34,8 +24,24 @@ function populateDOM(projects)
 
 }
 
+function populateNewProject(project, index)
+{
+    const projectBar = document.querySelector("#all-projects");
+    const addProjectBtn = document.querySelector("#add-project");
+    const pli = document.createElement('li');
+    const pbtn = document.createElement('button');
+    pbtn.textContent = project.getProjectName();
+    
+    pli.setAttribute('project-index', index);
+    pli.addEventListener("click", ()=>
+        {populateNavigatorList(project.getLists())})
+    pli.appendChild(pbtn);
+    projectBar.insertBefore(pli, addProjectBtn);
+}
+
 function populateNavigatorList(list)
 {    
+   
     const listNaviator = document.querySelector("#all-lists");
     const addListBtn = document.querySelector("#add-list");
     listNaviator.replaceChildren(addListBtn);
@@ -47,7 +53,7 @@ function populateNavigatorList(list)
 
             lli.addEventListener("click", ()=>
             {
-                populateListTask(list[i].getAllTasks());
+                populateListTask(i, list[i].getAllTasks());
             })
             lbtn.textContent = list[i].getListName();
             lli.appendChild(lbtn);
@@ -56,7 +62,14 @@ function populateNavigatorList(list)
 
         }
         // console.log(list);
+    if(list.length !=0)
+            {
     populateListTask(0, list[0].getAllTasks());
+            }
+    else
+    {
+        return;
+    }
 }
 
 
@@ -70,13 +83,12 @@ function populateListTask(todoIndex, tasks)
         const tdt = document.createElement('dt');
         const tdd = document.createElement('dd');
         addTaskBtn.setAttribute("list-index", todoIndex);
-
+        
         tdt.textContent = tasks[i].getTitle();
         tdd.textContent = tasks[i].getDescription();
 
         mainList.appendChild(tdt);
         mainList.appendChild(tdd);
-
     }
 
 }
@@ -204,4 +216,4 @@ export default function generateFakeContent()
 }
 
 
-export {populateDOM};
+export {populateDOM, populateNavigatorList, populateListTask, populateNewProject};

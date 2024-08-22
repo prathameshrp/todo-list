@@ -2,7 +2,7 @@ import "../assets/fonts/stylesheet.css"
 import "./style.css"
 import { Project } from "./scripts/projectHandler.js";
 import { ToDoList } from "./scripts/ListHandler.js";
-import placeholderContent, {populateDOM} from "./scripts/populateDOM.js";
+import placeholderContent, {populateDOM, populateNavigatorList, populateListTask, populateNewProject} from "./scripts/populateDOM.js";
 
 class ProjectManager
 {
@@ -26,7 +26,7 @@ class ProjectManager
 }
 
 
-function insertProjects()
+(function insertProjects()
 {
     const data = placeholderContent();
     
@@ -52,10 +52,9 @@ function insertProjects()
 
 
     });
-    // console.log(ProjectManager.getAllProjects());
-    
-}
-insertProjects();
+    // console.log(ProjectManager.getAllProjects());  
+})();
+
 populateDOM(ProjectManager.getAllProjects());
 
 // placeholderContent(ProjectManager);
@@ -78,11 +77,7 @@ function openProjectModal()
     submitBtn.addEventListener("click", (e)=>
     {
         e.stopPropagation();
-    const projecNameEle = document.querySelector("#project-title");
-    const newProjectName = projecNameEle.value;
-    
     // add project to backend logic:
-    ProjectManager.addProject(newProjectName);
     
     addNewProject();
     }
@@ -92,25 +87,16 @@ function openProjectModal()
 function addNewProject()
 {
 
-
-
-    //add project to dom:
+//add to array
+    const projecNameEle = document.querySelector("#project-title");
+    const newProjectName = projecNameEle.value;
+    const newProject = new Project(newProjectName);
     
-    const projectBar = document.querySelector("#all-projects");
-    const addBtn = document.querySelector("#add-project");
+    ProjectManager.addProject(newProject);
+    // populateDOM(ProjectManager.getAllProjects());
+    // populateNavigatorList(newProject.getLists());
+    populateNewProject(newProject, ProjectManager.getAllProjects().length-1);
 
-    const li = document.createElement('li');
-    const btn = document.createElement('button');
 
-    const allProjects = ProjectManager.getAllProjects();
-
-    const currentProject = allProjects[allProjects.length-1];
-
-    btn.textContent = currentProject.getProjectName();
-    li.setAttribute("project-index", allProjects.length-1);
-
-    li.appendChild(btn);
-
-    projectBar.insertBefore(li, addBtn);
 
 }
