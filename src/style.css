@@ -398,6 +398,7 @@ img
      font-size: calc(0.04rem + var(--font-resizer));
     width: 80%;
     word-wrap: break-word;
+    min-height: clamp(10px, 3vh, 50px);
 }
 
 #list dd::before

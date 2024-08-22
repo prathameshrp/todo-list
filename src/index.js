@@ -38,31 +38,58 @@ function populateSideBarDOM()
         pbtn.textContent = projects[i];
         pli.setAttribute('project-index', i);
         pli.addEventListener("click", ()=>
-            {populateNavigatorList(lists[i])})
+            {populateNavigatorList(i, lists[i], tasks[i])})
         pli.appendChild(pbtn);
         projecBar.insertBefore(pli, addProjectBtn);
     }
+    populateNavigatorList(0, lists[0], tasks[0])
 
 
 }
 
-function populateNavigatorList(list)
+function populateNavigatorList(listIndex, list, tasks)
 {    
     const listNaviator = document.querySelector("#all-lists");
     const addListBtn = document.querySelector("#add-list");
     listNaviator.replaceChildren(addListBtn);
     for(let i = 0; i<list.length; ++i)
         {
-
             const lli = document.createElement('li');
             const lbtn = document.createElement('button');
             lli.setAttribute("list-index", i);
+
+            lli.addEventListener("click", ()=>
+            {
+                populateListTask(i, tasks[i]);
+            })
             lbtn.textContent = list[i];
             lli.appendChild(lbtn);
             listNaviator.insertBefore(lli, addListBtn);
-
         }
 }
+
+
+function populateListTask(todoIndex, tasks)
+{
+    const mainList = document.querySelector("#list");
+    mainList.replaceChildren();
+    const addTaskBtn = document.querySelector("#add-task");
+    for(let i = 0; i<tasks.length; ++i)
+    {
+        const tdt = document.createElement('dt');
+        const tdd = document.createElement('dd');
+        addTaskBtn.setAttribute("list-index", todoIndex);
+
+        tdt.textContent = tasks[i][0];
+        tdd.textContent = tasks[i][1];
+
+        mainList.appendChild(tdt);
+        mainList.appendChild(tdd);
+
+    }
+
+}
+
 populateSideBarDOM();
 
 function generateFakeContent()
@@ -72,8 +99,23 @@ function generateFakeContent()
     const projectLists = [["Productivity", "Exercise", "Dailies"], 
                           ["Today", "Tomorrow", "Weekly Todos'"]];
 
-    const projectTasks = [[[["Create To Dos", "Easy to create"], "Manage To Dos", ["Set Descriptions", "Like This, Lorem Ipsum? Hyderate yoursel"]], ["Drink Water", "Run for 30mins"], ["Buy Milk", "Cook breakfast"]], 
-    [["Study Biology", "Lie on floor", "Think about life"], ["Attend lectures", "Buy something sweet"], ["Enjoy Holidays"]]];
+    const projectTasks = [
+        [
+            [["Create To Dos", "Easy to create"], ["Manage To Dos", "Effectively manage ToDos"], ["Set Descriptions", "Like This, Lorem Ipsum? Hyderate yoursel"]],
+
+            [["Drink Water", ""], ["Run for 30mins", ""]], 
+            
+            [["Buy Milk", ""], ["Cook breakfast", ""]]
+        ], 
+        [
+            [["Study Biology", "Atleast for 30mins"], ["Lie on floor", "Think about life"]], 
+            
+            [["Attend lectures"], ["Buy something sweet", "Preferbally pineapple pastry"]], 
+            
+            [["Enjoy Holidays", ""]]
+        ]
+
+];
 
     return {projectNames, projectLists, projectTasks};
 }
