@@ -38,7 +38,8 @@ img
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 clamp(30px, 10%,100px);
+    /* padding: 0 clamp(30px, 10%,100px); */
+    padding: calc(0.5rem + var(--font-resizer));
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.11);
  
 }
