@@ -1,16 +1,17 @@
 import "../assets/fonts/stylesheet.css"
 import "./style.css"
 import { Project } from "./scripts/projectHandler.js";
+import { ToDoList } from "./scripts/ListHandler.js";
 import placeholderContent from "./scripts/populateDOM.js";
 
 class ProjectManager
 {
     static #projectsInStorage = [];
     
-    static addProject(projectName = "New Projec")
+    static addProject(projectObj)
     {
-        const newProject = new Project(projectName);
-        this.#projectsInStorage.push(newProject);
+        // const newProject = new Project(projectName);
+        this.#projectsInStorage.push(projectObj);
     }
 
     static deleteProject(index)
@@ -20,11 +21,44 @@ class ProjectManager
 
     static getAllProjects()
     {
-        return [...this.#projectsInStorage];
+        return this.#projectsInStorage;
     }
 }
 
-placeholderContent(ProjectManager);
+
+function insertProjects()
+{
+    const data = placeholderContent();
+    
+    data["projects"].forEach(project => {
+        
+        const projectName = project["name"];
+        const newProject = new Project(projectName);
+
+        const lists = project["lists"];
+
+        lists.forEach(list => {
+            const listName = list["name"];
+            const newList = new ToDoList(listName);
+            const tasks = list["tasks"];
+            
+            tasks.forEach(task => {
+                newList.createTask(task["name"], task["description"], task["due_date"], task["priority"]);
+            });
+
+            newProject.createList(newList);
+        })
+        ProjectManager.addProject(newProject);
+
+
+    });
+    // console.log(ProjectManager.getAllProjects());
+    
+}
+insertProjects();
+
+
+// placeholderContent(ProjectManager);
 
 const runApp = (function (doc){
     const addProjectBtn = doc.querySelector("#add-project");

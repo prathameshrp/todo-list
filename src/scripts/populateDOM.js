@@ -1,11 +1,12 @@
 
-export default function insertProjects(projectManager)
+ function insertProjects(projectManager)
 {
     const data = generateFakeContent();
     
     data["projects"].forEach(project => {
         projectManager.addProject(project["name"]);
     });
+
 }
 
 function populateSideBarDOM()
@@ -77,7 +78,7 @@ function populateListTask(todoIndex, tasks)
 
 }
 
-function generateFakeContent()
+export default function generateFakeContent()
 {
     const data = {
         "projects": [

@@ -9,12 +9,12 @@ class Project
         this.#projectName = projectName;
     }
 
-    createList(listName = "New List") {
+    createList(listObj) {
         // const Obj = promptUser();
-        const newList = new ToDoList(listName);
+        // const newList = new ToDoList(listName);
         // newList.setDescription(Obj.d);
         // newList.setDate(Obj.date);
-        this.#todoListsInThisProject.push(newList);
+        this.#todoListsInThisProject.push(listObj);
     }
     getProjectName()
     {
@@ -23,7 +23,7 @@ class Project
 
     getLists()
     {
-        return [...this.#todoListsInThisProject];
+        return this.#todoListsInThisProject;
     }
 
     nameOfList(index)
