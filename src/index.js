@@ -2,7 +2,7 @@ import "../assets/fonts/stylesheet.css"
 import "./style.css"
 import { Project } from "./scripts/projectHandler.js";
 import { ToDoList } from "./scripts/ListHandler.js";
-import placeholderContent from "./scripts/populateDOM.js";
+import placeholderContent, {populateDOM} from "./scripts/populateDOM.js";
 
 class ProjectManager
 {
@@ -56,7 +56,7 @@ function insertProjects()
     
 }
 insertProjects();
-
+populateDOM(ProjectManager.getAllProjects());
 
 // placeholderContent(ProjectManager);
 

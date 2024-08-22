@@ -1,3 +1,4 @@
+// import { Project } from "./projectHandler";
 
  function insertProjects(projectManager)
 {
@@ -9,32 +10,31 @@
 
 }
 
-function populateSideBarDOM()
+function populateDOM(projects)
 {
-    const content = generateFakeContent();
-    const projects = content.projectNames;
-    const lists = content.projectLists;
-    const tasks = content.projectTasks;
+    
     for(let i = 0; i < projects.length; ++i)
     {
         const projecBar = document.querySelector("#all-projects");
         const addProjectBtn = document.querySelector("#add-project");
         const pli = document.createElement('li');
         const pbtn = document.createElement('button');
-        pbtn.textContent = projects[i];
+        pbtn.textContent = projects[i].getProjectName();
         
         pli.setAttribute('project-index', i);
         pli.addEventListener("click", ()=>
-            {populateNavigatorList(i, lists[i], tasks[i])})
+            {populateNavigatorList(projects[i].getLists())})
         pli.appendChild(pbtn);
         projecBar.insertBefore(pli, addProjectBtn);
     }
-    populateNavigatorList(0, lists[0], tasks[0])
+    // console.log(projects);
+    // console.log("These are lists:", projects[0].getLists());
+    populateNavigatorList(projects[0].getLists());
 
 
 }
 
-function populateNavigatorList(listIndex, list, tasks)
+function populateNavigatorList(list)
 {    
     const listNaviator = document.querySelector("#all-lists");
     const addListBtn = document.querySelector("#add-list");
@@ -47,13 +47,16 @@ function populateNavigatorList(listIndex, list, tasks)
 
             lli.addEventListener("click", ()=>
             {
-                populateListTask(i, tasks[i]);
+                populateListTask(list[i].getAllTasks());
             })
-            lbtn.textContent = list[i];
+            lbtn.textContent = list[i].getListName();
             lli.appendChild(lbtn);
             listNaviator.insertBefore(lli, addListBtn);
+        // console.log(list[i]);
+
         }
-    populateListTask(0, tasks[0]);
+        // console.log(list);
+    populateListTask(0, list[0].getAllTasks());
 }
 
 
@@ -68,8 +71,8 @@ function populateListTask(todoIndex, tasks)
         const tdd = document.createElement('dd');
         addTaskBtn.setAttribute("list-index", todoIndex);
 
-        tdt.textContent = tasks[i][0];
-        tdd.textContent = tasks[i][1];
+        tdt.textContent = tasks[i].getTitle();
+        tdd.textContent = tasks[i].getDescription();
 
         mainList.appendChild(tdt);
         mainList.appendChild(tdd);
@@ -201,3 +204,4 @@ export default function generateFakeContent()
 }
 
 
+export {populateDOM};
