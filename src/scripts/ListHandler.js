@@ -1,4 +1,3 @@
-import promptUser from "./inputHandler";
 import { ToDoTask } from "./taskHandler";
 
 class ToDoList
