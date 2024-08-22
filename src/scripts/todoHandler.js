@@ -6,24 +6,25 @@ class ToDoList
         this.listTitle = listTitle;
         this.allToDoTasks = [];
     }
-    createTask() {
-        const Obj = promptUser();
-        const newTask = ToDoTask(Obj.t);
-        newTask.setDescription(Obj.d);
-        newTask.setDate(date);
+    createTask(title, desc) {
+        // const Obj = promptUser();
+        const newTask = new ToDoTask(title);
+        newTask.setDescription(desc);
+        newTask.setDate(new Date());
         this.allToDoTasks.push(newTask);
     }
     setDescription(description)
     {
         this.description = description;
     }
-    printAllTasks()
+    getAllTasks()
     {
-        this.allToDoTasks.forEach((task)=>{
-            console.log(task.title);
-            console.log(task.getDate());
-            console.log(task.getDescription());
-            });
+        // this.allToDoTasks.forEach((task)=>{
+        //     console.log(task.title);
+        //     console.log(task.getDate());
+        //     console.log(task.getDescription());
+        //     });
+        return this.allToDoTasks;
     }
     getListName()
     {
@@ -42,6 +43,10 @@ class ToDoTask
         this.description = description;
     }
 
+    getTitle()
+    {
+        return this.title;
+    }
     getDescription()
     {
         return this.description;

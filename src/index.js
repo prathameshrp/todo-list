@@ -47,6 +47,25 @@ for(let i = 0; i<allToDos.length; ++i)
     alllists.insertBefore(li, addListBtn);
 }
 
+//creating a template list:
+allToDos[0].createTask("Example Task", "With example description");
+const currentList = document.querySelector("#list");
+
+const allTasks = allToDos[0].getAllTasks();
+
+for(let i = 0; i< allTasks.length; ++i)
+{
+    const dt = document.createElement('dt');
+    const dd = document.createElement('dd');
+
+    dt.textContent = allTasks[i].getTitle();
+    dd.textContent = allTasks[i].getDescription();
+
+    currentList.appendChild(dt);
+    currentList.appendChild(dd);
+
+}
+
 // Logic to create a new task in current list
 
 const addTaskBtn = document.querySelector("#add-task");
@@ -98,16 +117,16 @@ function appendToList(title, desc) {
 
 
 
-const projectMenuBtn = document.querySelector('#project-menu-btn');
-const projectMenu  = document.querySelector('#side-column');
-const mainArea = document.querySelector("#main-area");
-projectMenuBtn.addEventListener("click", (e)=>
-{
-    e.stopPropagation();
+// const projectMenuBtn = document.querySelector('#project-menu-btn');
+// const projectMenu  = document.querySelector('#side-column');
+// const mainArea = document.querySelector("#main-area");
+// projectMenuBtn.addEventListener("click", (e)=>
+// {
+//     e.stopPropagation();
 
-    // projectMenu.style.width   = '0px';
-    // projectMenu.style.position = "absolute";
-    // projectMenu.style.gridColumn = '1/-1';
-    // mainArea.style.gridColumn = '1/5';
-    // projectMenu.style.left = "-100%";
-})
+//     // projectMenu.style.width   = '0px';
+//     // projectMenu.style.position = "absolute";
+//     // projectMenu.style.gridColumn = '1/-1';
+//     // mainArea.style.gridColumn = '1/5';
+//     // projectMenu.style.left = "-100%";
+// })
