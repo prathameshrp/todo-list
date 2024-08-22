@@ -31,8 +31,26 @@ for(let i = 0; i<projects.length; ++i)
     projectList.insertBefore(li, addProjectBtn);
 }
 
+const headerTitle = document.querySelector("#list-header");
+console.log(headerTitle);
+function displayCurrentList(list)
+{
+    const tasks = list.getAllTasks();
+    headerTitle.textContent = list.getListName();
 
+    currentList.replaceChildren();
+for(let i = 0; i< tasks.length; ++i)
+{
+    const dt = document.createElement('dt');
+    const dd = document.createElement('dd');
 
+    dt.textContent = tasks[i].getTitle();
+    dd.textContent = tasks[i].getDescription();
+
+    currentList.appendChild(dt);
+    currentList.appendChild(dd);
+}
+}
 //Populating project:
 const allToDos = projects[0].getAllTodos();
 const addListBtn = document.querySelector("#add-list");
@@ -42,6 +60,11 @@ for(let i = 0; i<allToDos.length; ++i)
     const li = document.createElement('li');
     const lbtn = document.createElement('button');
     li.setAttribute('list-index', i);
+    li.addEventListener("click", (e)=>
+{
+    displayCurrentList(allToDos[i]);
+}    
+    )
     lbtn.textContent = projects[0].listName(i);
     li.appendChild(lbtn);
     alllists.insertBefore(li, addListBtn);
