@@ -1,67 +1,33 @@
 import promptUser from "./inputHandler";
+import { ToDoTask } from "./taskHandler";
+
 class ToDoList
 {
-    constructor(listTitle)
+    #listName;
+    #todoTaksInThisList = [];
+    constructor(listName)
     {
-        this.listTitle = listTitle;
-        this.allToDoTasks = [];
+        this.#listName = listName;
     }
-    createTask(title, desc) {
+
+    createTask(title = "New Task", desc = "Do X before Y...", date = new Date(), priority = 2) {
         // const Obj = promptUser();
         const newTask = new ToDoTask(title);
         newTask.setDescription(desc);
-        newTask.setDate(new Date());
-        this.allToDoTasks.push(newTask);
+        newTask.setDate(date);
+        newTask.setPriority(priority);
+        this.#todoTaksInThisList.push(newTask);
     }
-    setDescription(description)
-    {
-        this.description = description;
-    }
+
     getAllTasks()
     {
-        // this.allToDoTasks.forEach((task)=>{
-        //     console.log(task.title);
-        //     console.log(task.getDate());
-        //     console.log(task.getDescription());
-        //     });
-        return this.allToDoTasks;
+        return this.#todoTaksInThisList;
     }
     getListName()
     {
-        return this.listTitle;
+        return this.#listName;
     }
 }
-class ToDoTask
-{
-    constructor(taskTitle)
-    {
-        this.title = taskTitle;
-    }
-
-    setDescription(description)
-    {
-        this.description = description;
-    }
-
-    getTitle()
-    {
-        return this.title;
-    }
-    getDescription()
-    {
-        return this.description;
-    }
-
-    setDate(date)
-    {
-        this.date = date;
-    }
-    getDate()
-    {
-        return this.date;
-    }
-}
-
 
 // const today = new ToDoList("Today");
 // const tomorrow = new ToDoList("Tomorrow");

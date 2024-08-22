@@ -2,23 +2,23 @@ import {ToDoList} from "./ListHandler.js";
 
 class Project
 {
-    #projectTitle;
+    #projectName;
     #todoListsInThisProject = [];
-    constructor(projectTitle = "New Project")
+    constructor(projectName = "New Project")
     {
-        this.#projectTitle = projectTitle;
+        this.#projectName = projectName;
     }
 
-    createList(listTitle = "New List") {
+    createList(listName = "New List") {
         // const Obj = promptUser();
-        const newList = new ToDoList(listTitle);
+        const newList = new ToDoList(listName);
         // newList.setDescription(Obj.d);
         // newList.setDate(Obj.date);
         this.#todoListsInThisProject.push(newList);
     }
     getProjectName()
     {
-        return this.#projectTitle;
+        return this.#projectName;
     }
 
     getLists()
