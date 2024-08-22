@@ -336,6 +336,7 @@ img
 {
     height: fit-content;
     width: fit-content;
+    max-width: 100%;
     border: 1px outset var(--theme-contrast-color);
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -373,6 +374,8 @@ img
     position: relative;
     font-size: calc(0.2rem + var(--font-resizer));
     padding-left: calc(clamp(10px, 2vw, 15px)  + 0.5rem);
+    width: 90%;
+    word-wrap: break-word;
 }
 #list dt::before
 {
@@ -388,10 +391,12 @@ img
 
 #list dd
 {
-    margin: 5% clamp(30px, 5vw, 40px);
+    margin: 3% clamp(30px, 5vw, 40px);
     position: relative;
     padding-left: calc(clamp(10px, 2vw, 15px)  + 0.2rem);
      font-size: calc(0.1rem + var(--font-resizer));
+    width: 80%;
+    word-wrap: break-word;
 }
 
 #list dd::before
