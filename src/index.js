@@ -130,3 +130,35 @@ function appendToList(title, desc) {
 //     // mainArea.style.gridColumn = '1/5';
 //     // projectMenu.style.left = "-100%";
 // })
+
+
+// let mode = true;
+// const modeChange = document.querySelector("#mode-change");
+// const root = document.querySelector(':root');
+// // --theme-primary-color: #EDF0F0;
+// // --theme-secondary-color: #ffffff;
+// // --theme-contrast-color: #000000;
+// // --theme-substitue-color: #c3c6d1;
+// // --theme-contrast-dull: #2a2b2b;
+
+// modeChange.addEventListener("click", (e)=>
+// {
+//     if(true)
+//     {
+//     root.style.setProperty("--theme-primary-color", "#EDF0F0");
+//     root.style.setProperty("--theme-secondary-color:", "#ffffff"); 
+//     root.style.setProperty("--theme-contrast-color:", "#000000"); 
+//     root.style.setProperty("--theme-substitue-color", "#c3c6d1"); 
+//     root.style.setProperty("--theme-contrast-dull", "#2a2b2b");
+//     mode = !mode;
+//     }
+//     else
+//     {
+//         root.style.setProperty("--theme-primary-color", "#EDF0F0");
+//         root.style.setProperty("--theme-secondary-color:", "#000000"); 
+//         root.style.setProperty("--theme-contrast-color:", "#ffffff"); 
+//         root.style.setProperty("--theme-substitue-color", "#c3c6d1"); 
+//         root.style.setProperty("--theme-contrast-dull", "#2a2b2b");
+//         mode = !mode;
+//     }
+// })

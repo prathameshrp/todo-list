@@ -105,9 +105,8 @@ img
     font-family: var(--content-font), sans-serif;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 0.5fr auto;
+    grid-template-rows: 0fr auto;
     height: calc(100vh - (clamp(40px, 10vh, 80px) + clamp(20px, 5vh, 40px)));
-    
     overflow: auto;
 }
 
@@ -394,7 +393,7 @@ img
     margin: 3% clamp(30px, 5vw, 40px);
     position: relative;
     padding-left: calc(clamp(10px, 2vw, 15px)  + 0.2rem);
-     font-size: calc(0.1rem + var(--font-resizer));
+     font-size: calc(0.04rem + var(--font-resizer));
     width: 80%;
     word-wrap: break-word;
 }
@@ -427,7 +426,7 @@ img
   
 }
 
-#dd-task:hover
+#add-task:hover
 {
     background-color: var(--theme-substitue-color);
 }
@@ -441,10 +440,12 @@ img
     z-index: 4;
     color: var(--theme-substitue-color);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0.2rem;
     height: clamp(20px, 5vh, 40px);
+
+    /* position: relative; */
 }
 #universal-footer pre a{
     color: var(--theme-substitue-color);
@@ -456,3 +457,8 @@ img
     align-items: center;
 }
 
+#universal-footer .fa-github
+{
+    color: var(--theme-substitue-color);
+    /* margin-right: auto; */
+}
