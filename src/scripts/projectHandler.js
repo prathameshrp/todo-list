@@ -15,6 +15,10 @@ class Project
         // newList.setDate(Obj.date);
         this.allToDoLists.push(newList);
     }
+    getProjectName()
+    {
+        return this.projectTitle;
+    }
 
 }
 
