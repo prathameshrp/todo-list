@@ -23,7 +23,7 @@ class ProjectManager
     }
 }
 
-function populateDOM()
+function populateSideBarDOM()
 {
     const content = generateFakeContent();
     const projects = content.projectNames;
@@ -37,12 +37,29 @@ function populateDOM()
         const pbtn = document.createElement('button');
         pbtn.textContent = projects[i];
         pli.setAttribute('project-index', i);
+        pli.addEventListener("click", populateNavigatorList(lists[i]))
         pli.appendChild(pbtn);
         projecBar.insertBefore(pli, addProjectBtn);
     }
+
+
 }
 
-populateDOM();
+function populateNavigatorList(list)
+{    
+    const listNaviator = document.querySelector("#all-lists");
+    // listNaviator.replaceChildren();
+    for(let i = 0; i<list.length; ++i)
+        {
+
+            const addListBtn = document.querySelector("#add-list");
+            const lli = document.createElement('li');
+            const lbtn = document.createElement('button');
+            lli.setAttribute("list-index", i);
+    
+        }
+}
+populateSideBarDOM();
 
 function generateFakeContent()
 {
