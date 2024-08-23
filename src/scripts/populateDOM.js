@@ -1,8 +1,8 @@
 // import { Project } from "./projectHandler";
-
+import data from "./defaultContent.json";
  function insertProjects(projectManager)
 {
-    const data = generateFakeContent();
+    const data = JSON.parse(data);
     
     data["projects"].forEach(project => {
         projectManager.addProject(project["name"]);
@@ -47,10 +47,8 @@ function populateNavigatorList(list, projectIndex)
     for(let i = 0; i<list.length; ++i)
         {
             populateNewList(i, list[i])
-        // console.log(list[i]);
 
         }
-        // console.log(list);
     if(list.length !=0)
             {
     populateListTask(0, list[0].getAllTasks());
@@ -112,123 +110,7 @@ function populateNewtask(todoIndex, taskName, taskDesc)
 }
 export default function generateFakeContent()
 {
-    const data = {
-        "projects": [
-            {
-                "name": "Neo.do",
-                "lists": [
-                    {
-                        "name": "Productivity",
-                        "tasks": [
-                            {
-                                "name": "Create To Dos",
-                                "description": "Easy to create",
-                                "priority": null,
-                                "due_date": null
-                            },
-                            {
-                                "name": "Manage To Dos",
-                                "description": "Effectively manage ToDos",
-                                "priority": null,
-                                "due_date": null
-                            },
-                            {
-                                "name": "Set Descriptions",
-                                "description": "Like This, Lorem Ipsum? Hyderate yourself",
-                                "priority": null,
-                                "due_date": null
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Exercise",
-                        "tasks": [
-                            {
-                                "name": "Drink Water",
-                                "description": "",
-                                "priority": null,
-                                "due_date": null
-                            },
-                            {
-                                "name": "Run for 30mins",
-                                "description": "",
-                                "priority": null,
-                                "due_date": null
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Dailies",
-                        "tasks": [
-                            {
-                                "name": "Buy Milk",
-                                "description": "",
-                                "priority": null,
-                                "due_date": null
-                            },
-                            {
-                                "name": "Cook breakfast",
-                                "description": "",
-                                "priority": null,
-                                "due_date": null
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Default",
-                "lists": [
-                    {
-                        "name": "Today",
-                        "tasks": [
-                            {
-                                "name": "Study Biology",
-                                "description": "At least for 30mins",
-                                "priority": null,
-                                "due_date": null
-                            },
-                            {
-                                "name": "Lie on floor",
-                                "description": "Think about life",
-                                "priority": null,
-                                "due_date": null
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Tomorrow",
-                        "tasks": [
-                            {
-                                "name": "Attend lectures",
-                                "description": null,
-                                "priority": null,
-                                "due_date": null
-                            },
-                            {
-                                "name": "Buy something sweet",
-                                "description": "Preferably pineapple pastry",
-                                "priority": null,
-                                "due_date": null
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Weekly Todos'",
-                        "tasks": [
-                            {
-                                "name": "Enjoy Holidays",
-                                "description": "",
-                                "priority": null,
-                                "due_date": null
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-    
+   
     return data;
 }
 

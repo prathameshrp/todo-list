@@ -181,24 +181,12 @@ function addNewTask()
     const taskDescEle = document.querySelector("#task-desc");
 
     const newTaskName = taskNameEle.value;
-    const newTaskDesc = taskDescEle.value;
-
-    // const newTask = new ToDoTask(newTaskName);
-    // newTask.setDescription(newTaskDesc);
+    const newTaskDesc = taskDescEle.value;;
 
     const listParentProject = ProjectManager.getAllProjects()[activeProject];
     const taskParentList = listParentProject.getLists()[activeList];
 
-    // console.log("This Must be all projects", ProjectManager.getAllProjects());
-    // console.log("This Must be index I am looking for", activeProject);
-
-
-    // console.log("This Must be project", listParentProject);
-
-    // listParentProject.createList(newList);
     taskParentList.createTask(newTaskName, newTaskDesc);
-    // populateDOM(ProjectManager.getAllProjects());
-    // populateNavigatorList(newProject.getLists());
     populateNewtask(taskParentList.getAllTasks().length -1, newTaskName, newTaskDesc);
     const taskDialog = document.querySelector("#task-dialog");
     taskDialog.close();
