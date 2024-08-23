@@ -72,22 +72,32 @@ const runApp = (function (doc){
         e.stopPropagation();
         openListModal();
     })
+
+    const submitPBtn = document.querySelector("#submit-project");
+    submitPBtn.addEventListener("click", (e)=>
+    {
+    e.stopPropagation();
+    // add project to backend logic:
+    addNewProject();
+    })
+
+    const submitLBtn = document.querySelector("#submit-list");
+    submitLBtn.addEventListener("click", (e)=>
+    {
+        e.stopPropagation();
+    // add list to backend logic:
+    
+    addNewList();
+    });
+
 })(document);
+
 
 function openProjectModal()
 {
     const projectDialog = document.querySelector("#project-dialog");
     projectDialog.showModal();
 
-    const submitBtn = document.querySelector("#submit-project");
-    submitBtn.addEventListener("click", (e)=>
-    {
-        e.stopPropagation();
-    // add project to backend logic:
-    
-    addNewProject();
-    }
-    )
 }
 
 function addNewProject()
@@ -104,23 +114,12 @@ function addNewProject()
     populateNewProject(newProject, ProjectManager.getAllProjects().length-1);
     const projectDialog = document.querySelector("#project-dialog");
     projectDialog.close();
-
 }
 
 function openListModal()
 {
     const listDialog = document.querySelector("#list-dialog");
     listDialog.showModal();
-
-    const submitBtn = document.querySelector("#submit-list");
-    submitBtn.addEventListener("click", (e)=>
-    {
-        e.stopPropagation();
-    // add project to backend logic:
-    
-    addNewList();
-    }
-    )
     
 }
 
@@ -142,5 +141,6 @@ function addNewList()
     // populateDOM(ProjectManager.getAllProjects());
     // populateNavigatorList(newProject.getLists());
     populateNewList(listParentProject.getLists().length -1, newList);
-
+    const listDialog = document.querySelector("#list-dialog");
+    listDialog.close();
 }

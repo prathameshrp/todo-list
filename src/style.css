@@ -171,8 +171,14 @@ img
     justify-content: flex-start;
     align-items: center;
     height: 100%;
+    /* overflow-x: scroll; */
+    overflow-x: auto;
+    /* scrollbar-width: none; */
 }
-
+/* #list-navigator ul::-webkit-scrollbar
+{
+    display: none;
+} */
 #list-navigator ul li>button
 {
     background-color: transparent;
@@ -188,6 +194,7 @@ img
     height: 100%;
     width: max-content;
     max-width: fit-content;
+    min-width: fit-content;
     padding: 0 3%;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -235,7 +242,7 @@ img
     padding: calc(0.5rem + var(--font-resizer));
     box-shadow: 7px 2px 3px rgba(0, 0, 0, 0.11);
     z-index: 2;
-    /* overflow-x: hidden; */
+    overflow-y: auto;
 }
 .general-heading
 {
