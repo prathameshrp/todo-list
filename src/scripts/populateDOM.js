@@ -85,21 +85,31 @@ function populateListTask(todoIndex, tasks)
     const mainList = document.querySelector("#list");
     mainList.replaceChildren();
     const addTaskBtn = document.querySelector("#add-task");
+    addTaskBtn.setAttribute("active-list", todoIndex);
+
     for(let i = 0; i<tasks.length; ++i)
     {
-        const tdt = document.createElement('dt');
-        const tdd = document.createElement('dd');
-        addTaskBtn.setAttribute("list-index", todoIndex);
-        
-        tdt.textContent = tasks[i].getTitle();
-        tdd.textContent = tasks[i].getDescription();
-
-        mainList.appendChild(tdt);
-        mainList.appendChild(tdd);
+        populateNewtask(todoIndex, tasks[i].getTitle(), tasks[i].getDescription())
     }
 
 }
 
+function populateNewtask(todoIndex, taskName, taskDesc)
+{
+    const mainList = document.querySelector("#list");
+    const addTaskBtn = document.querySelector("#add-task");
+
+    const tdt = document.createElement('dt');
+    const tdd = document.createElement('dd');
+    addTaskBtn.setAttribute("active-list", todoIndex);
+    
+    tdt.textContent = taskName;
+    tdd.textContent = taskDesc;
+
+    mainList.appendChild(tdt);
+    mainList.appendChild(tdd);
+
+}
 export default function generateFakeContent()
 {
     const data = {
@@ -223,4 +233,4 @@ export default function generateFakeContent()
 }
 
 
-export {populateDOM, populateNavigatorList, populateListTask, populateNewProject, populateNewList};
+export {populateDOM, populateNavigatorList, populateListTask, populateNewProject, populateNewList, populateNewtask};

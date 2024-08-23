@@ -2,7 +2,8 @@ import "../assets/fonts/stylesheet.css"
 import "./style.css"
 import { Project } from "./scripts/projectHandler.js";
 import { ToDoList } from "./scripts/ListHandler.js";
-import placeholderContent, {populateDOM, populateNavigatorList, populateListTask, populateNewProject, populateNewList} from "./scripts/populateDOM.js";
+import placeholderContent, {populateDOM, populateNavigatorList, populateListTask, populateNewProject, populateNewList, populateNewtask} from "./scripts/populateDOM.js";
+import { ToDoTask } from "./scripts/taskHandler.js";
 
 class ProjectManager
 {
@@ -73,6 +74,13 @@ const runApp = (function (doc){
         openListModal();
     })
 
+
+    const addTaskButton = doc.querySelector("#add-task");
+    addTaskButton.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        openTaskModal();
+    })
+
     const submitPBtn = document.querySelector("#submit-project");
     submitPBtn.addEventListener("click", (e)=>
     {
@@ -88,6 +96,15 @@ const runApp = (function (doc){
     // add list to backend logic:
     
     addNewList();
+    });
+
+    const submitTBtn = document.querySelector("#submit-task");
+    submitTBtn.addEventListener("click", (e)=>
+    {
+        e.stopPropagation();
+    // add task to backend logic:
+    
+    addNewTask();
     });
 
 })(document);
@@ -143,4 +160,46 @@ function addNewList()
     populateNewList(listParentProject.getLists().length -1, newList);
     const listDialog = document.querySelector("#list-dialog");
     listDialog.close();
+}
+
+
+
+function openTaskModal()
+{
+    const taskDialog = document.querySelector("#task-dialog");
+    taskDialog.showModal();
+    
+}
+
+function addNewTask()
+{
+
+//add to array
+    const activeProject = document.querySelector("#add-list").getAttribute("active-project");
+    const activeList = document.querySelector("#add-task").getAttribute("active-list");
+    const taskNameEle = document.querySelector("#task-title");
+    const taskDescEle = document.querySelector("#task-desc");
+
+    const newTaskName = taskNameEle.value;
+    const newTaskDesc = taskDescEle.value;
+
+    // const newTask = new ToDoTask(newTaskName);
+    // newTask.setDescription(newTaskDesc);
+
+    const listParentProject = ProjectManager.getAllProjects()[activeProject];
+    const taskParentList = listParentProject.getLists()[activeList];
+
+    // console.log("This Must be all projects", ProjectManager.getAllProjects());
+    // console.log("This Must be index I am looking for", activeProject);
+
+
+    // console.log("This Must be project", listParentProject);
+
+    // listParentProject.createList(newList);
+    taskParentList.createTask(newTaskName, newTaskDesc);
+    // populateDOM(ProjectManager.getAllProjects());
+    // populateNavigatorList(newProject.getLists());
+    populateNewtask(taskParentList.getAllTasks().length -1, newTaskName, newTaskDesc);
+    const taskDialog = document.querySelector("#task-dialog");
+    taskDialog.close();
 }
