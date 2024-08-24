@@ -93,13 +93,16 @@ const runApp = (function (doc){
         openTaskModal();
     })
 
-    const submitPBtn = document.querySelector("#submit-project");
-    submitPBtn.addEventListener("click", (e)=>
-    {
-    e.stopPropagation();
-    // add project to backend logic:
-    addNewProject();
-    })
+    // const submitPBtn = document.querySelector("#submit-project");
+    // submitPBtn.addEventListener("click", )
+    const projectFrom = document.querySelector('[name="projectForm"]');
+    projectFrom.addEventListener('submit',(e)=>
+        {
+        e.stopPropagation();
+        // add project to backend logic:
+        addNewProject();
+        } );
+
 
     const submitLBtn = document.querySelector("#submit-list");
     submitLBtn.addEventListener("click", (e)=>
