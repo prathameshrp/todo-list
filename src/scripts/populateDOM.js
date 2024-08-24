@@ -1,5 +1,6 @@
 // import { Project } from "./projectHandler";
 import data from "./defaultContent.json";
+
 let active_project = 0;
 let active_list = 0;
 // To add a new project, that has functional button to display its list (works fine)
@@ -9,15 +10,22 @@ function populateNewProject(project, index)
     const addProjectBtn = document.querySelector("#add-project");
     const pli = document.createElement('li');
     const pbtn = document.createElement('button');
-    pbtn.textContent = project.getProjectName();
+    const dbtn = document.createElement('button');
+
+    const deleteIcon = document.querySelector("#trash");
+    const cloneDel = deleteIcon.content.cloneNode(true);
     
+    dbtn.setAttribute('del-project-index', index);
+    pbtn.textContent = project.getProjectName();
+    dbtn.appendChild(cloneDel);
     pli.setAttribute('project-index', index);
-    pli.addEventListener("click", ()=>
+    pbtn.addEventListener("click", ()=>
         {populateNavigatorList(project.getLists(), index)
             active_project = index;
         }
 )
     pli.appendChild(pbtn);
+    pli.appendChild(dbtn);
     projectBar.insertBefore(pli, addProjectBtn);
 }
 
@@ -100,6 +108,7 @@ export default function generateDefaultContent()
 {
     return data;
 }
+
 
 
 export {populateNavigatorList,  populateListTask, populateNewProject, populateNewList, populateNewtask, active_list, active_project};

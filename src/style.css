@@ -273,17 +273,34 @@ img
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4px;
 }
 
 #all-projects li button
 {
     min-width: fit-content;
-    width: 100%;
     background-color: transparent;
     border: none;
     font-size: calc(0.2rem + var(--font-resizer));
     min-height: 100%;
     color: var(--theme-secondary-color);
+}
+.fa-trash
+{
+    /* content: "X"; */
+    color: salmon;
+    font-size: 1em;
+    margin-right: 3%;
+    opacity: 1;
+
+}
+#all-projects li:hover .fa-trash
+{
+    opacity: 1;
 }
 
 #all-projects li:last-child
