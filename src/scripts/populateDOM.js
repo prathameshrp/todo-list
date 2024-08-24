@@ -10,14 +10,16 @@ function populateNewProject(project, index)
     const addProjectBtn = document.querySelector("#add-project");
     const pli = document.createElement('li');
     const pbtn = document.createElement('button');
-    const dbtn = document.createElement('button');
 
-    const deleteIcon = document.querySelector("#trash");
-    const cloneDel = deleteIcon.content.cloneNode(true);
+    // not adding delete button in this branch
+    // const dbtn = document.createElement('button');
+
+    // const deleteIcon = document.querySelector("#trash");
+    // const cloneDel = deleteIcon.content.cloneNode(true);
     
-    dbtn.setAttribute('del-project-index', index);
+    // dbtn.setAttribute('del-project-index', index);
     pbtn.textContent = project.getProjectName();
-    dbtn.appendChild(cloneDel);
+    // dbtn.appendChild(cloneDel);
     pli.setAttribute('project-index', index);
     pbtn.addEventListener("click", ()=>
         {populateNavigatorList(project.getLists(), index)
@@ -25,7 +27,7 @@ function populateNewProject(project, index)
         }
 )
     pli.appendChild(pbtn);
-    pli.appendChild(dbtn);
+    // pli.appendChild(dbtn);
     projectBar.insertBefore(pli, addProjectBtn);
 }
 
