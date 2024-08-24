@@ -3,10 +3,12 @@
 class ToDoList
 {
     #listName;
+    #createdDate
     #todoTaksInThisList = [];
     constructor(listName = "New List")
     {
         this.#listName = listName;
+        this.#createdDate = new Date();
     }
 
     createTask(taskObj) {
@@ -21,6 +23,10 @@ class ToDoList
     getListName()
     {
         return this.#listName;
+    }
+    getCreationDate()
+    {
+        return this.#createdDate;
     }
 }
 

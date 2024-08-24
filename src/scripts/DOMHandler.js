@@ -156,7 +156,10 @@ function setEventsToList(list, index) {
 function populateListTask(tasks, todoIndex)
 {
     const listHeader = document.querySelector("#list-header");
-    listHeader.textContent = projectList()[active_project].getLists()[todoIndex].getListName();
+    const listDate = document.querySelector("#date");
+    const thisList =  projectList()[active_project].getLists()[todoIndex];
+    listHeader.textContent = thisList.getListName();
+    listDate.textContent = thisList.getCreationDate();
     const mainList = document.querySelector("#list");
     mainList.replaceChildren();
     // const addTaskBtn = document.querySelector("#add-task");
