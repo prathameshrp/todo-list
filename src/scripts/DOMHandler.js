@@ -4,10 +4,10 @@ function populateDOM(projects)
     for(let i = 0; i < projects.length; ++i)
     {
      populateNewProject(projects[i], i);
-     setEventsToProject(projects[i], i);
     }
 
-    // populateNavigatorList(projects[0].getLists());
+    populateNavigatorList(projects[0].getLists(), 0);
+    populateListTask(projects[0].getLists()[0].getAllTasks(), 0);
 }
 
 
@@ -38,6 +38,9 @@ function populateNewProject(project, index)
     pli.appendChild(pbtn);
     // pli.appendChild(dbtn);
     projectBar.insertBefore(pli, addProjectBtn);
+
+    setEventsToProject(project, index);
+
 }
 
 
@@ -45,8 +48,11 @@ function setEventsToProject(project, index) {
     const btn = document.querySelector(`[project-index="${index}"]`);
     btn.addEventListener("click", (e)=>
     {
-        populateNavigatorList(project.getLists(), index)
+        populateNavigatorList(project.getLists(), index);
         active_project = index;
+
+        populateListTask(project.getLists()[0].getAllTasks(), 0);
+
     })
 }
 // import { Project } from "./projectHandler";
@@ -70,7 +76,6 @@ function populateNavigatorList(lists, projectIndex)
     for(let i = 0; i<lists.length; ++i)
         {
             populateNewList(lists[i], i);
-            setEventsToList(lists[i], i)
         }
     // populateListTask(0, lists[0].getAllTasks());
     }
@@ -93,6 +98,8 @@ function populateNewList(list, index)
     lbtn.textContent = list.getListName();
     lli.appendChild(lbtn);
     listNavigator.insertBefore(lli, addListBtn);
+    setEventsToList(list, index);
+
 }
 
 function setEventsToList(list, index) {

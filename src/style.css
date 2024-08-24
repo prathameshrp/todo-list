@@ -283,6 +283,7 @@ img
 #all-projects li button
 {
     min-width: fit-content;
+    width: 100%;
     background-color: transparent;
     border: none;
     font-size: calc(0.2rem + var(--font-resizer));
