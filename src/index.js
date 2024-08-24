@@ -2,11 +2,10 @@ import "../assets/fonts/stylesheet.css"
 import "./style.css"
 import { Project } from "./scripts/projectHandler.js";
 import { ToDoList } from "./scripts/ListHandler.js";
-import placeholderContent, {populateNavigatorList, populateNewProject, populateNewList, populateNewtask} from "./scripts/populateDOM.js";
+import placeholderContent, {populateNavigatorList, populateNewProject, populateNewList, populateNewtask, active_project} from "./scripts/populateDOM.js";
 import { ToDoTask } from "./scripts/taskHandler.js";
 
-let active_project = 0;
-let active_list = 0;
+
 class ProjectManager
 {
     static #projectsInStorage = [];
@@ -69,20 +68,6 @@ function populateDOM(projects)
     // populateNavigatorList(projects[0].getLists());
 }
 populateDOM(ProjectManager.getAllProjects());
-
-function addEventsToProject(projects)
-{
-    for(let i = 0; i < projects.length; ++i)
-    {
-        const projecBtn = document.querySelector(`[project-index='${i}']`);
-        projecBtn.addEventListener("click", (e)=>{
-            e.stopPropagation();
-            populateNavigatorList(projects[i].getLists(), i);
-        });
-    }
-}
-
-addEventsToProject(ProjectManager.getAllProjects());
 
 
 // placeholderContent(ProjectManager);
@@ -160,34 +145,34 @@ function addNewProject()
     projectDialog.close();
 }
 
-// function openListModal()
-// {
-//     const listDialog = document.querySelector("#list-dialog");
-//     listDialog.showModal();
+function openListModal()
+{
+    const listDialog = document.querySelector("#list-dialog");
+    listDialog.showModal();
     
-// }
+}
 
-// function addNewList()
-// {
-
-// //add to array
-//     const activeProject = document.querySelector("#add-list").getAttribute("active-project");
-//     const listNameEle = document.querySelector("#list-title");
-//     const newListName = listNameEle.value;
-//     const newList = new ToDoList(newListName);
-//     const listParentProject = ProjectManager.getAllProjects()[activeProject];
-//     console.log("This Must be all projects", ProjectManager.getAllProjects());
-//     console.log("This Must be index I am looking for", activeProject);
+function addNewList()
+{
 
 
-//     console.log("This Must be project", listParentProject);
-//     listParentProject.createList(newList);
-//     // populateDOM(ProjectManager.getAllProjects());
-//     // populateNavigatorList(newProject.getLists());
-//     populateNewList(listParentProject.getLists().length -1, newList);
-//     const listDialog = document.querySelector("#list-dialog");
-//     listDialog.close();
-// }
+    const activeProject = active_project;
+    const listNameEle = document.querySelector("#list-title");
+    const newListName = listNameEle.value;
+    const newList = new ToDoList(newListName);
+    const listParentProject = ProjectManager.getAllProjects()[activeProject];
+    console.log("This Must be all projects", ProjectManager.getAllProjects());
+    console.log("This Must be index I am looking for", activeProject);
+
+
+    console.log("This Must be project", listParentProject);
+    listParentProject.createList(newList);
+    // populateDOM(ProjectManager.getAllProjects());
+    // populateNavigatorList(newProject.getLists());
+    populateNewList(listParentProject.getLists().length -1, newList);
+    const listDialog = document.querySelector("#list-dialog");
+    listDialog.close();
+}
 
 
 

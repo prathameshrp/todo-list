@@ -1,6 +1,7 @@
 // import { Project } from "./projectHandler";
 import data from "./defaultContent.json";
-
+let active_project = 0;
+let active_list = 0;
 // To add a new project, that has functional button to display its list (works fine)
 function populateNewProject(project, index)
 {
@@ -12,7 +13,10 @@ function populateNewProject(project, index)
     
     pli.setAttribute('project-index', index);
     pli.addEventListener("click", ()=>
-        {populateNavigatorList(project.getLists(), index)})
+        {populateNavigatorList(project.getLists(), index)
+            active_project = index;
+        }
+)
     pli.appendChild(pbtn);
     projectBar.insertBefore(pli, addProjectBtn);
 }
@@ -49,6 +53,7 @@ function populateNewList(index, list)
     lli.addEventListener("click", ()=>
             {
                 populateListTask(index, list.getAllTasks());
+                active_list = index;
             })
     lbtn.textContent = list.getListName();
     lli.appendChild(lbtn);
@@ -93,4 +98,4 @@ export default function generateDefaultContent()
 }
 
 
-export {populateNavigatorList,  populateListTask, populateNewProject, populateNewList, populateNewtask};
+export {populateNavigatorList,  populateListTask, populateNewProject, populateNewList, populateNewtask, active_list, active_project};
