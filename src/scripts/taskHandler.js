@@ -1,3 +1,5 @@
+// class for all task instances
+// reponsibility: read and write tasks
 class ToDoTask
 {
     #taskName;
@@ -11,41 +13,43 @@ class ToDoTask
     2 - Necessary
     3 - Trivial
     */
-    constructor(taskName)
+    
+    constructor(taskName = "New Task")
     {
         this.#taskName = taskName;
     }
 
-    setDescription(description)
+    setDescription(description = "Do X before Y...")
     {
         this.#description = description;
     }
 
+    setDate(date = new Date())
+    {
+        this.#dueDate = date;
+    }
+
+    setPriority(priority = 2)
+    {
+        this.#priority = priority;
+    }
+
+    getPriority()
+    {
+        return this.#decidePriority();
+    }
     getTitle()
     {
         return this.#taskName;
-    }
-    getDescription()
-    {
-        return this.#description;
-    }
-
-    setDate(date)
-    {
-        this.#dueDate = date;
     }
     getDate()
     {
         return this.#dueDate;
     }
 
-    setPriority(prior)
+    getDescription()
     {
-        this.#priority = prior;
-    }
-    getPriority()
-    {
-        return this.#decidePriority();
+        return this.#description;
     }
 
     #decidePriority()
@@ -73,4 +77,6 @@ class ToDoTask
     }
 }
 
+// Note for self:
+// Priorities are set using integral type and returned as a string literal
 export { ToDoTask };

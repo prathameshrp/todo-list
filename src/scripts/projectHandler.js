@@ -1,4 +1,6 @@
-import {ToDoList} from "./ListHandler.js";
+// Class project to handle all the todolists under a single project
+
+// Responsibility: To manage all ToDo lists under a single object
 
 class Project
 {
@@ -10,12 +12,9 @@ class Project
     }
 
     createList(listObj) {
-        // const Obj = promptUser();
-        // const newList = new ToDoList(listName);
-        // newList.setDescription(Obj.d);
-        // newList.setDate(Obj.date);
         this.#todoListsInThisProject.push(listObj);
     }
+    
     getProjectName()
     {
         return this.#projectName;
@@ -24,11 +23,6 @@ class Project
     getLists()
     {
         return this.#todoListsInThisProject;
-    }
-
-    nameOfList(index)
-    {
-        return this.allToDoLists[index].getListName();
     }
 
 }
