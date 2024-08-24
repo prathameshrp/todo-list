@@ -72,8 +72,6 @@ function addNewProject(newProjectName)
     const newProject =  parseProjectObj({"name": newProjectName});
     
     ProjectManager.addProject(newProject);
-    // populateDOM(ProjectManager.getAllProjects());
-    // populateNavigatorList(newProject.getLists());
 
 }
 function addNewList(newListName) {
