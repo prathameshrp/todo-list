@@ -27,6 +27,7 @@ const runApp = (function (doc){
     const addProjectBtn = doc.querySelector("#add-project");
 
     addProjectBtn.addEventListener("click", (e)=>{
+
         e.stopPropagation();
         openModal("#project-dialog");
     })
@@ -34,6 +35,7 @@ const runApp = (function (doc){
     const addListButton = doc.querySelector("#add-list");
     addListButton.addEventListener("click", (e)=>{
         e.stopPropagation();
+        if(projectList().length != 0)
         openModal("#list-dialog");
     })
 
@@ -41,6 +43,7 @@ const runApp = (function (doc){
     const addTaskButton = doc.querySelector("#add-task");
     addTaskButton.addEventListener("click", (e)=>{
         e.stopPropagation();
+        if(projectList().length != 0 && projectList()[active_project].getLists() != 0)
         openModal("#task-dialog");
     })
 
