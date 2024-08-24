@@ -146,6 +146,7 @@ function populateNewList(list, index)
 function setEventsToList(list, index) {
     const li = document.querySelector(`[list-index="${index}"]`);
     li.addEventListener("click", (e)=>{
+      
         populateListTask(list.getAllTasks(), index);
         active_list = index;
     })
@@ -154,6 +155,8 @@ function setEventsToList(list, index) {
 
 function populateListTask(tasks, todoIndex)
 {
+    const listHeader = document.querySelector("#list-header");
+    listHeader.textContent = projectList()[active_project].getLists()[todoIndex].getListName();
     const mainList = document.querySelector("#list");
     mainList.replaceChildren();
     // const addTaskBtn = document.querySelector("#add-task");

@@ -307,8 +307,8 @@ img
 }
 #all-projects li:hover .fa-trash
 {
+    background-color: var(--theme-contrast-color);
     opacity: 1;
-    background-color: #000000;
 }
 
 #all-projects li:last-child
