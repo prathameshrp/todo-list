@@ -1,9 +1,13 @@
 import "../assets/fonts/stylesheet.css"
 import "./style.css"
-import { Project } from "./scripts/projectHandler.js";
-import { ToDoList } from "./scripts/ListHandler.js";
-import {populateDOM, populateNavigatorList, populateNewProject, populateNewList, populateNewtask, active_project, active_list} from "./scripts/DOMHandler.js";
-import { insertDefaultProjects, projectList } from "./scripts/crudLogicHandler.js";
+
+import {
+    populateDOM,
+} from "./scripts/DOMHandler.js";
+
+import { insertDefaultProjects,
+    projectList 
+} from "./scripts/crudLogicHandler.js";
 
 
 
