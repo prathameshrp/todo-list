@@ -60,7 +60,24 @@ function insertDefaultProjects()
 function projectList() {
     return ProjectManager.getAllProjects();
 }
+
+// new project addition logic:
+
+function addNewProject(newProjectName)
+{
+
+//add to ProjectManager:
+ 
+    const newProject =  parseProjectObj({"name": newProjectName});
+    
+    ProjectManager.addProject(newProject);
+    // populateDOM(ProjectManager.getAllProjects());
+    // populateNavigatorList(newProject.getLists());
+
+}
+
 export {
     insertDefaultProjects,
     projectList,
+    addNewProject,
 }

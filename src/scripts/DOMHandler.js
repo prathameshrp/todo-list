@@ -50,10 +50,18 @@ function setEventsToProject(project, index) {
     {
         populateNavigatorList(project.getLists(), index);
         active_project = index;
-
-        populateListTask(project.getLists()[0].getAllTasks(), 0);
-
+        setBlankDOM(project);
     })
+}
+
+function setBlankDOM(project) {
+    if(project.getLists() != 0)
+        populateListTask(project.getLists()[0].getAllTasks(), 0);
+        else
+        {
+            const mainList = document.querySelector("#list");
+            mainList.replaceChildren();
+        }
 }
 // import { Project } from "./projectHandler";
 
@@ -145,4 +153,5 @@ function populateNewtask(todoIndex, task)
 
 
 export {populateDOM,
-    populateNavigatorList,  populateListTask, populateNewProject, populateNewList, populateNewtask, active_list, active_project};
+        populateNewProject,
+        active_list, active_project};
