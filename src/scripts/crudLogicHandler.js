@@ -89,10 +89,16 @@ function addNewTask(taskName, taskDesc, date = new Date(), priority = 2) {
 
     projectList()[active_project].getLists()[active_list].createTask(newTask);
 }
+
+function deleteProject(index) {
+    ProjectManager.deleteProject(index);
+    console.log(projectList());
+}
 export {
     insertDefaultProjects,
     projectList,
     addNewProject,
     addNewList,
     addNewTask,
+    deleteProject,
 }

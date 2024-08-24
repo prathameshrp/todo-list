@@ -292,16 +292,23 @@ img
 }
 .fa-trash
 {
-    /* content: "X"; */
-    color: salmon;
+    /*content: "X";
+    */color: salmon;
     font-size: 1em;
     margin-right: 3%;
     opacity: 1;
-
+    background-color: #c3c6d1;
+    padding: clamp(3px, 4%, 6px);
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
 }
 #all-projects li:hover .fa-trash
 {
     opacity: 1;
+    background-color: #000000;
 }
 
 #all-projects li:last-child

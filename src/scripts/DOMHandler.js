@@ -1,16 +1,36 @@
-
+import { projectList, deleteProject } from "./crudLogicHandler";
 function populateDOM(projects)
 {
+    const projectBar = document.querySelector("#all-projects");
+    const addProjectBtn = document.querySelector("#add-project");
+
+    projectBar.replaceChildren(addProjectBtn);
     for(let i = 0; i < projects.length; ++i)
     {
      populateNewProject(projects[i], i);
     }
 
-    populateNavigatorList(projects[0].getLists(), 0);
-    populateListTask(projects[0].getLists()[0].getAllTasks(), 0);
+    setBlankProj(projects);
+    
 }
 
-
+function setBlankProj(projects)
+{
+    if(projects.length != 0)
+        {
+        populateNavigatorList(projects[0].getLists(), 0);
+        populateListTask(projects[0].getLists()[0].getAllTasks(), 0);
+        console.log(projects);
+        }
+        else
+        {
+            const mainList = document.querySelector("#list");
+            mainList.replaceChildren();
+            const listNavigator = document.querySelector("#all-lists");
+            const addListBtn = document.querySelector("#add-list");
+            listNavigator.replaceChildren(addListBtn);
+        }
+}
 // variables to track activity on current DOM
 let active_project = 0;
 let active_list = 0;
@@ -24,19 +44,21 @@ function populateNewProject(project, index)
     const pbtn = document.createElement('button');
 
     // not adding delete button in this branch
-    // const dbtn = document.createElement('button');
+    const dbtn = document.createElement('button');
 
-    // const deleteIcon = document.querySelector("#trash");
-    // const cloneDel = deleteIcon.content.cloneNode(true);
+    const deleteIcon = document.querySelector("#trash");
+    const cloneDel = deleteIcon.content.cloneNode(true);
     
-    // dbtn.setAttribute('del-project-index', index);
+    dbtn.setAttribute('del-project-index', index);
 
     pbtn.textContent = project.getProjectName();
 
-    // dbtn.appendChild(cloneDel);
-    pbtn.setAttribute('project-index', index);
+    dbtn.appendChild(cloneDel);
+    pbtn.setAttribute('project-index-button', index);
+    pli.setAttribute('project-index', index);
+
     pli.appendChild(pbtn);
-    // pli.appendChild(dbtn);
+    pli.appendChild(dbtn);
     projectBar.insertBefore(pli, addProjectBtn);
 
     setEventsToProject(project, index);
@@ -45,12 +67,20 @@ function populateNewProject(project, index)
 
 
 function setEventsToProject(project, index) {
-    const btn = document.querySelector(`[project-index="${index}"]`);
+    const btn = document.querySelector(`[project-index-button="${index}"]`);
     btn.addEventListener("click", (e)=>
     {
         populateNavigatorList(project.getLists(), index);
         active_project = index;
         setBlankDOM(project);
+    })
+
+    const dbtn = document.querySelector(`[del-project-index="${index}"]`);
+
+    dbtn.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        deleteProject(index);
+        deleteFromDOM("project", index);
     })
 }
 
@@ -63,7 +93,7 @@ function setBlankDOM(project) {
             mainList.replaceChildren();
         }
 }
-// import { Project } from "./projectHandler";
+
 
 
 // To add a new project, that has functional button to display its list (works fine)
@@ -140,7 +170,7 @@ function populateNewtask(task, todoIndex)
     const tdt = document.createElement('dt');
     const tdd = document.createElement('dd');
     addTaskBtn.setAttribute("active-list", todoIndex);
-    
+    console.log(task);
     const taskName = task.getTitle();
     const taskDesc = task.getDescription();
     tdt.textContent = taskName;
@@ -151,6 +181,11 @@ function populateNewtask(task, todoIndex)
 
 }
 
+function deleteFromDOM(ele, index) {
+    const li = document.querySelector(`[${ele}-index="${index}"]`);
+    li.remove();
+    populateDOM(projectList());
+}
 
 export {populateDOM,
         populateNewProject,
