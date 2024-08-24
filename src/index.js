@@ -96,7 +96,7 @@ const runApp = (function (doc){
     // const submitPBtn = document.querySelector("#submit-project");
     // submitPBtn.addEventListener("click", )
     const projectFrom = document.querySelector('[name="projectForm"]');
-    projectFrom.addEventListener('submit',(e)=>
+    projectFrom.addEventListener("submit",(e)=>
         {
         e.stopPropagation();
         // add project to backend logic:
@@ -104,8 +104,9 @@ const runApp = (function (doc){
         } );
 
 
-    const submitLBtn = document.querySelector("#submit-list");
-    submitLBtn.addEventListener("click", (e)=>
+    const listFrom = document.querySelector('[name="listForm"]');
+
+    listFrom.addEventListener("submit", (e)=>
     {
         e.stopPropagation();
     // add list to backend logic:
@@ -113,8 +114,9 @@ const runApp = (function (doc){
     addNewList();
     });
 
-    const submitTBtn = document.querySelector("#submit-task");
-    submitTBtn.addEventListener("click", (e)=>
+    const taskFrom = document.querySelector('[name="taskForm"]');
+
+    taskFrom.addEventListener("submit", (e)=>
     {
         e.stopPropagation();
     // add task to backend logic:
