@@ -11,7 +11,7 @@ class ToDoList
 
     createTask(taskObj) {
         // const Obj = promptUser();
-        this.#todoTaksInThisList.push(newTask);
+        this.#todoTaksInThisList.push(taskObj);
     }
 
     getAllTasks()
