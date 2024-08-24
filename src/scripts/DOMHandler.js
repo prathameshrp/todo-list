@@ -1,4 +1,6 @@
-import { projectList, deleteProject } from "./crudLogicHandler";
+import { projectList, 
+        deleteProject,
+        deleteList, } from "./crudLogicHandler";
 function populateDOM(projects)
 {
     const projectBar = document.querySelector("#all-projects");
@@ -156,11 +158,24 @@ function populateListTask(tasks, todoIndex)
     // const addTaskBtn = document.querySelector("#add-task");
     // addTaskBtn.setAttribute("active-list", todoIndex);
 
+    const dbtn = document.createElement('button');
+    const deleteIcon = document.querySelector("#trash");
+    const cloneDel = deleteIcon.content.cloneNode(true);
+    
+    dbtn.setAttribute('del-list-index', active_list);
+    dbtn.appendChild(cloneDel);
+    const span = document.querySelector("#delete-list");
+    span.replaceChildren();
+    span.appendChild(dbtn);
     for(let i = 0; i<tasks.length; ++i)
     {
         populateNewtask(tasks[i], todoIndex)
     }
 
+    dbtn.addEventListener("click", (e)=>{
+        deleteList(active_project, active_list);
+        deleteFromDOM("list", active_list);
+    })
 }
 
 function populateNewtask(task, todoIndex)

@@ -25,6 +25,12 @@ class Project
         return this.#todoListsInThisProject;
     }
 
+    deleteList(index)
+    {
+        if(this.#todoListsInThisProject.length === 0) return;
+        this.#todoListsInThisProject.splice(index, 1);
+        
+    }
 }
 
 export {Project};
