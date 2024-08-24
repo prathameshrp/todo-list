@@ -25,8 +25,10 @@ class ProjectManager
 
     static deleteList(pIndex, lIndex)
     {
+        
         const project= this.getAllProjects()[pIndex];
-        project.deleteList(lIndex);
+        if(project)
+            project.deleteList(lIndex);
 
     }
     static getAllProjects()

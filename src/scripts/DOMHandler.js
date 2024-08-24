@@ -21,7 +21,8 @@ function setBlankProj(projects)
     if(projects.length != 0)
         {
         populateNavigatorList(projects[0].getLists(), 0);
-        populateListTask(projects[0].getLists()[0].getAllTasks(), 0);
+        
+        setBlankDOM(projects[0]);
         console.log(projects);
         }
         else
@@ -198,7 +199,8 @@ function populateNewtask(task, todoIndex)
 
 function deleteFromDOM(ele, index) {
     const li = document.querySelector(`[${ele}-index="${index}"]`);
-    li.remove();
+    if(li)
+        li.remove();
     populateDOM(projectList());
 }
 
