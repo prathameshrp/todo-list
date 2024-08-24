@@ -203,9 +203,12 @@ function addNewTask()
 
     const listParentProject = ProjectManager.getAllProjects()[activeProject];
     const taskParentList = listParentProject.getLists()[activeList];
-
-    taskParentList.createTask(newTaskName, newTaskDesc);
-    populateNewtask(taskParentList.getAllTasks().length -1, newTaskName, newTaskDesc);
+    if(newTaskDesc != 0)     
+        taskParentList.createTask(newTaskName, newTaskDesc);
+    else
+        taskParentList.createTask(newTaskName);
+    const lastIndex = taskParentList.getAllTasks().length -1;
+    populateNewtask(lastIndex, taskParentList.getAllTasks()[lastIndex].getTitle(), taskParentList.getAllTasks()[lastIndex].getDescription());
     const taskDialog = document.querySelector("#task-dialog");
     taskDialog.close();
 }

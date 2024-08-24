@@ -31,13 +31,13 @@
                     "tasks": [
                         {
                             "name": "Drink Water",
-                            "description": "",
+                            "description": "Keep yourself hydrated",
                             "priority": null,
                             "due_date": null
                         },
                         {
                             "name": "Run for 30mins",
-                            "description": "",
+                            "description": "Be fit, be active, and survive",
                             "priority": null,
                             "due_date": null
                         }
@@ -48,13 +48,13 @@
                     "tasks": [
                         {
                             "name": "Buy Milk",
-                            "description": "",
+                            "description": "Essential",
                             "priority": null,
                             "due_date": null
                         },
                         {
                             "name": "Cook breakfast",
-                            "description": "",
+                            "description": "Try to make it tasty, and some for me please",
                             "priority": null,
                             "due_date": null
                         }
@@ -87,7 +87,7 @@
                     "tasks": [
                         {
                             "name": "Attend lectures",
-                            "description": null,
+                            "description": "Even though you don't feel like",
                             "priority": null,
                             "due_date": null
                         },
@@ -104,7 +104,7 @@
                     "tasks": [
                         {
                             "name": "Enjoy Holidays",
-                            "description": "",
+                            "description": "Until you got time",
                             "priority": null,
                             "due_date": null
                         }
