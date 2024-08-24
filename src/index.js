@@ -4,11 +4,15 @@ import "./style.css"
 import {
     populateDOM,
     populateNewProject,
+    populateNewList,
+    active_project,
+    active_list,
 } from "./scripts/DOMHandler.js";
 
 import { insertDefaultProjects,
     projectList, 
     addNewProject,
+    addNewList,
 } from "./scripts/crudLogicHandler.js";
 
 
@@ -25,11 +29,11 @@ const runApp = (function (doc){
         openProjectModal();
     })
 
-    // const addListButton = doc.querySelector("#add-list");
-    // addListButton.addEventListener("click", (e)=>{
-    //     e.stopPropagation();
-    //     openListModal();
-    // })
+    const addListButton = doc.querySelector("#add-list");
+    addListButton.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        openListModal();
+    })
 
 
     // const addTaskButton = doc.querySelector("#add-task");
@@ -45,22 +49,27 @@ const runApp = (function (doc){
         {
         e.stopPropagation();
         // add project to backend logic:
-        const newProjectName = returnProjectName();
+        const newProjectName = returnEleVal("#project-title");
         addNewProject(newProjectName);
-        populateNewProject(projectList()[projectList().length-1], projectList().length-1);
-        closeProjectDialog();
+        const index = projectList().length-1;
+        populateNewProject(projectList()[index], index);
+        closeDialog("#project-dialog");
         } );
 
 
-    // const listFrom = document.querySelector('[name="listForm"]');
+    const listFrom = document.querySelector('[name="listForm"]');
 
-    // listFrom.addEventListener("submit", (e)=>
-    // {
-    //     e.stopPropagation();
-    // // add list to backend logic:
-    
-    // addNewList();
-    // });
+    listFrom.addEventListener("submit", (e)=>
+    {
+        e.stopPropagation();
+    // add list to backend logic:
+        const newListName = returnEleVal("#list-title");
+        addNewList(newListName);
+        const index = projectList()[active_project].getLists().length-1;
+        populateNewList(projectList()[active_project].getLists()[index], index);
+        closeDialog("#list-dialog");
+        // addNewList();
+    });
 
     // const taskFrom = document.querySelector('[name="taskForm"]');
 
@@ -76,12 +85,12 @@ const runApp = (function (doc){
 
 })(document);
 
-function returnProjectName()
+function returnEleVal(ele)
 {
-    const projecNameEle = document.querySelector("#project-title");
-    const newProjectName = projecNameEle.value;
+    const NameEle = document.querySelector(ele);
+    const newName = NameEle.value;
     
-    return newProjectName;
+    return newName;
 }
 function openProjectModal()
 {
@@ -90,23 +99,23 @@ function openProjectModal()
 
 }
 
-function closeProjectDialog()
+function closeDialog(ele)
 {
 
 //add to array
     // populateDOM(ProjectManager.getAllProjects());
     // populateNavigatorList(newProject.getLists());
 
-    const projectDialog = document.querySelector("#project-dialog");
-    projectDialog.close();
+    const dialog = document.querySelector(ele);
+    dialog.close();
 }
 
-// function openListModal()
-// {
-//     const listDialog = document.querySelector("#list-dialog");
-//     listDialog.showModal();
+function openListModal()
+{
+    const listDialog = document.querySelector("#list-dialog");
+    listDialog.showModal();
     
-// }
+}
 
 // function addNewList()
 // {

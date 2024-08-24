@@ -154,4 +154,5 @@ function populateNewtask(todoIndex, task)
 
 export {populateDOM,
         populateNewProject,
+        populateNewList,
         active_list, active_project};

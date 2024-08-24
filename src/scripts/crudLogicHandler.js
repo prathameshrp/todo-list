@@ -1,4 +1,5 @@
 import defaultContent from "./defaultContent.json";
+import { active_project } from "./DOMHandler";
 import { 
     parseTaskObj, 
     parseListObj,
@@ -75,9 +76,13 @@ function addNewProject(newProjectName)
     // populateNavigatorList(newProject.getLists());
 
 }
-
+function addNewList(newListName) {
+    const newList = parseListObj({"name": newListName});
+    projectList()[active_project].createList(newList);
+}
 export {
     insertDefaultProjects,
     projectList,
     addNewProject,
+    addNewList,
 }
