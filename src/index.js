@@ -65,7 +65,7 @@ function populateDOM(projects)
          // pli.addEventListener("click", ()=>
     //     {populateNavigatorList(project.getLists(), index)})
     }
-    // populateNavigatorList(projects[0].getLists());
+    populateNavigatorList(projects[0].getLists());
 }
 populateDOM(ProjectManager.getAllProjects());
 
@@ -123,6 +123,8 @@ const runApp = (function (doc){
     
     addNewTask();
     });
+
+
 
 })(document);
 
