@@ -38,7 +38,11 @@ function populateNavigatorList(lists, projectIndex)
         }
     populateListTask(0, lists[0].getAllTasks());
     }
-        
+    else
+    {
+        const mainList = document.querySelector("#list");
+        mainList.replaceChildren();
+    }
 }
 
 function populateNewList(index, list)

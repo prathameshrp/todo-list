@@ -2,7 +2,7 @@ import "../assets/fonts/stylesheet.css"
 import "./style.css"
 import { Project } from "./scripts/projectHandler.js";
 import { ToDoList } from "./scripts/ListHandler.js";
-import placeholderContent, {populateNavigatorList, populateNewProject, populateNewList, populateNewtask, active_project} from "./scripts/populateDOM.js";
+import placeholderContent, {populateNavigatorList, populateNewProject, populateNewList, populateNewtask, active_project, active_list} from "./scripts/populateDOM.js";
 import { ToDoTask } from "./scripts/taskHandler.js";
 
 
@@ -176,30 +176,29 @@ function addNewList()
 
 
 
-// function openTaskModal()
-// {
-//     const taskDialog = document.querySelector("#task-dialog");
-//     taskDialog.showModal();
+function openTaskModal()
+{
+    const taskDialog = document.querySelector("#task-dialog");
+    taskDialog.showModal();
     
-// }
+}
 
-// function addNewTask()
-// {
+function addNewTask()
+{
 
-// //add to array
-//     const activeProject = document.querySelector("#add-list").getAttribute("active-project");
-//     const activeList = document.querySelector("#add-task").getAttribute("active-list");
-//     const taskNameEle = document.querySelector("#task-title");
-//     const taskDescEle = document.querySelector("#task-desc");
+    const activeProject = active_project;
+    const activeList = active_list;
+    const taskNameEle = document.querySelector("#task-title");
+    const taskDescEle = document.querySelector("#task-desc");
 
-//     const newTaskName = taskNameEle.value;
-//     const newTaskDesc = taskDescEle.value;;
+    const newTaskName = taskNameEle.value;
+    const newTaskDesc = taskDescEle.value;;
 
-//     const listParentProject = ProjectManager.getAllProjects()[activeProject];
-//     const taskParentList = listParentProject.getLists()[activeList];
+    const listParentProject = ProjectManager.getAllProjects()[activeProject];
+    const taskParentList = listParentProject.getLists()[activeList];
 
-//     taskParentList.createTask(newTaskName, newTaskDesc);
-//     populateNewtask(taskParentList.getAllTasks().length -1, newTaskName, newTaskDesc);
-//     const taskDialog = document.querySelector("#task-dialog");
-//     taskDialog.close();
-// }
+    taskParentList.createTask(newTaskName, newTaskDesc);
+    populateNewtask(taskParentList.getAllTasks().length -1, newTaskName, newTaskDesc);
+    const taskDialog = document.querySelector("#task-dialog");
+    taskDialog.close();
+}
