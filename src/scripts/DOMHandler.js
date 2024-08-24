@@ -128,12 +128,12 @@ function populateListTask(tasks, todoIndex)
 
     for(let i = 0; i<tasks.length; ++i)
     {
-        populateNewtask(todoIndex, tasks[i])
+        populateNewtask(tasks[i], todoIndex)
     }
 
 }
 
-function populateNewtask(todoIndex, task)
+function populateNewtask(task, todoIndex)
 {
     const mainList = document.querySelector("#list");
     const addTaskBtn = document.querySelector("#add-task");
@@ -155,4 +155,6 @@ function populateNewtask(todoIndex, task)
 export {populateDOM,
         populateNewProject,
         populateNewList,
-        active_list, active_project};
+        populateNewtask,
+        active_list, 
+        active_project};

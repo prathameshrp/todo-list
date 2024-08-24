@@ -1,5 +1,5 @@
 import defaultContent from "./defaultContent.json";
-import { active_project } from "./DOMHandler";
+import { active_list, active_project } from "./DOMHandler";
 import { 
     parseTaskObj, 
     parseListObj,
@@ -80,9 +80,21 @@ function addNewList(newListName) {
     const newList = parseListObj({"name": newListName});
     projectList()[active_project].createList(newList);
 }
+
+function addNewTask(taskName, taskDesc, date = new Date(), priority = 2) {
+    const newTask = parseTaskObj({
+        "name": taskName,
+        "description": taskDesc,
+        "due_date": date,
+        "priority": priority,
+    })
+
+    projectList()[active_project].getLists()[active_list].createTask(newTask);
+}
 export {
     insertDefaultProjects,
     projectList,
     addNewProject,
     addNewList,
+    addNewTask,
 }

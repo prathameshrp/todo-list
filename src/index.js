@@ -5,6 +5,7 @@ import {
     populateDOM,
     populateNewProject,
     populateNewList,
+    populateNewtask,
     active_project,
     active_list,
 } from "./scripts/DOMHandler.js";
@@ -13,6 +14,7 @@ import { insertDefaultProjects,
     projectList, 
     addNewProject,
     addNewList,
+    addNewTask,
 } from "./scripts/crudLogicHandler.js";
 
 
@@ -26,24 +28,23 @@ const runApp = (function (doc){
 
     addProjectBtn.addEventListener("click", (e)=>{
         e.stopPropagation();
-        openProjectModal();
+        openModal("#project-dialog");
     })
 
     const addListButton = doc.querySelector("#add-list");
     addListButton.addEventListener("click", (e)=>{
         e.stopPropagation();
-        openListModal();
+        openModal("#list-dialog");
     })
 
 
-    // const addTaskButton = doc.querySelector("#add-task");
-    // addTaskButton.addEventListener("click", (e)=>{
-    //     e.stopPropagation();
-    //     openTaskModal();
-    // })
+    const addTaskButton = doc.querySelector("#add-task");
+    addTaskButton.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        openModal("#task-dialog");
+    })
 
-    // const submitPBtn = document.querySelector("#submit-project");
-    // submitPBtn.addEventListener("click", )
+
     const projectFrom = document.querySelector('[name="projectForm"]');
     projectFrom.addEventListener("submit",(e)=>
         {
@@ -52,7 +53,8 @@ const runApp = (function (doc){
         const newProjectName = returnEleVal("#project-title");
         addNewProject(newProjectName);
         const index = projectList().length-1;
-        populateNewProject(projectList()[index], index);
+        const project = projectList()[index];
+        populateNewProject(project, index);
         closeDialog("#project-dialog");
         } );
 
@@ -66,20 +68,27 @@ const runApp = (function (doc){
         const newListName = returnEleVal("#list-title");
         addNewList(newListName);
         const index = projectList()[active_project].getLists().length-1;
-        populateNewList(projectList()[active_project].getLists()[index], index);
+        const list = projectList()[active_project].getLists()[index];
+        populateNewList(list, index);
         closeDialog("#list-dialog");
         // addNewList();
     });
 
-    // const taskFrom = document.querySelector('[name="taskForm"]');
+    const taskFrom = document.querySelector('[name="taskForm"]');
 
-    // taskFrom.addEventListener("submit", (e)=>
-    // {
-    //     e.stopPropagation();
-    // // add task to backend logic:
-    
-    // addNewTask();
-    // });
+    taskFrom.addEventListener("submit", (e)=>
+    {
+        e.stopPropagation();
+    // add task to backend logic:
+    const taskName = returnEleVal("#task-title");
+    const taskDesc = returnEleVal("#task-desc");
+    addNewTask(taskName, taskDesc);
+        const index = projectList()[active_project].getLists()[active_list].getAllTasks().length -1;
+        const task =  projectList()[active_project].getLists()[active_list].getAllTasks()[index]
+        populateNewtask(task, index);
+        closeDialog("#task-dialog");
+
+    });
 
 
 
@@ -92,61 +101,21 @@ function returnEleVal(ele)
     
     return newName;
 }
-function openProjectModal()
-{
-    const projectDialog = document.querySelector("#project-dialog");
-    projectDialog.showModal();
 
+function openModal(ele)
+{
+    const dialog = document.querySelector(ele);
+    dialog.showModal();
 }
 
 function closeDialog(ele)
 {
 
-//add to array
-    // populateDOM(ProjectManager.getAllProjects());
-    // populateNavigatorList(newProject.getLists());
-
     const dialog = document.querySelector(ele);
     dialog.close();
 }
 
-function openListModal()
-{
-    const listDialog = document.querySelector("#list-dialog");
-    listDialog.showModal();
-    
-}
 
-// function addNewList()
-// {
-
-
-//     const activeProject = active_project;
-//     const listNameEle = document.querySelector("#list-title");
-//     const newListName = listNameEle.value;
-//     const newList = new ToDoList(newListName);
-//     const listParentProject = ProjectManager.getAllProjects()[activeProject];
-//     console.log("This Must be all projects", ProjectManager.getAllProjects());
-//     console.log("This Must be index I am looking for", activeProject);
-
-
-//     console.log("This Must be project", listParentProject);
-//     listParentProject.createList(newList);
-//     // populateDOM(ProjectManager.getAllProjects());
-//     // populateNavigatorList(newProject.getLists());
-//     populateNewList(listParentProject.getLists().length -1, newList);
-//     const listDialog = document.querySelector("#list-dialog");
-//     listDialog.close();
-// }
-
-
-
-// function openTaskModal()
-// {
-//     const taskDialog = document.querySelector("#task-dialog");
-//     taskDialog.showModal();
-    
-// }
 
 // function addNewTask()
 // {
@@ -157,7 +126,7 @@ function openListModal()
 //     const taskDescEle = document.querySelector("#task-desc");
 
 //     const newTaskName = taskNameEle.value;
-//     const newTaskDesc = taskDescEle.value;;
+//     const newTaskDesc = taskDescEle.value;
 
 //     const listParentProject = ProjectManager.getAllProjects()[activeProject];
 //     const taskParentList = listParentProject.getLists()[activeList];
