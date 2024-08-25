@@ -31,6 +31,11 @@ class Project
         this.#todoListsInThisProject.splice(index, 1);
         
     }
+    deleteTaskFromList(listIndex, taskIndex)
+    {
+        const list = this.getLists()[listIndex];
+        list.deleteToDo(taskIndex);
+    }
 }
 
 export {Project};

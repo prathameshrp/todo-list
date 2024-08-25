@@ -35,6 +35,12 @@ class ProjectManager
     {
         return this.#projectsInStorage;
     }
+    static deleteTask(projectIndex, listIndex, taskIndex){
+        const project= this.getAllProjects()[projectIndex];
+        if(project)
+            project.deleteTaskFromList(listIndex, taskIndex);
+    }
+
 }
 
 
@@ -108,6 +114,11 @@ function deleteList(projectIndex, listIndex) {
     ProjectManager.deleteList(projectIndex, listIndex);
     console.log(projectList());
 }
+
+function deleteTask(projectIndex, listIndex, taskIndex) {
+    ProjectManager.deleteTask(projectIndex, listIndex, taskIndex);
+    console.log(projectList());
+}
 export {
     insertDefaultProjects,
     projectList,
@@ -116,4 +127,5 @@ export {
     addNewTask,
     deleteProject,
     deleteList,
+    deleteTask,
 }

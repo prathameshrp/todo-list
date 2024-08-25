@@ -28,6 +28,10 @@ class ToDoList
     {
         return this.#createdDate;
     }
+    deleteToDo(index)
+    {
+        this.#todoTaksInThisList.splice(index, 1);
+    }
 }
 
 // const today = new ToDoList("Today");
