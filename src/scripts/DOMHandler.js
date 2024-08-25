@@ -84,6 +84,8 @@ function setEventsToProject(project, index) {
         e.stopPropagation();
         deleteProject(index);
         deleteFromDOM("project", index);
+        populateDOM(projectList());
+
     })
 }
 
@@ -176,21 +178,24 @@ function populateListTask(tasks, todoIndex)
     span.appendChild(dbtn);
     for(let i = 0; i<tasks.length; ++i)
     {
-        populateNewtask(tasks[i], todoIndex)
+        populateNewtask(tasks[i], i, todoIndex)
     }
 
     dbtn.addEventListener("click", (e)=>{
         deleteList(active_project, active_list);
         deleteFromDOM("list", active_list);
+        populateNavigatorList(projectList()[active_project].getLists(), active_project);
+        setBlankDOM(projectList()[active_project]);
     })
 }
 
-function populateNewtask(task, todoIndex)
+function populateNewtask(task, taskIndex, todoIndex)
 {
     const mainList = document.querySelector("#list");
     const addTaskBtn = document.querySelector("#add-task");
     const tdt = document.createElement('dt');
     const tdd = document.createElement('dd');
+    tdt.setAttribute("task-index", taskIndex);
     addTaskBtn.setAttribute("active-list", todoIndex);
     console.log(task);
     const taskName = task.getTitle();
@@ -207,7 +212,6 @@ function deleteFromDOM(ele, index) {
     const li = document.querySelector(`[${ele}-index="${index}"]`);
     if(li)
         li.remove();
-    populateDOM(projectList());
 }
 
 export {populateDOM,

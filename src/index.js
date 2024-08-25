@@ -88,7 +88,7 @@ const runApp = (function (doc){
     addNewTask(taskName, taskDesc);
         const index = projectList()[active_project].getLists()[active_list].getAllTasks().length -1;
         const task =  projectList()[active_project].getLists()[active_list].getAllTasks()[index]
-        populateNewtask(task, index);
+        populateNewtask(task, index, active_list);
         closeDialog("#task-dialog");
 
     });
@@ -117,32 +117,4 @@ function closeDialog(ele)
     const dialog = document.querySelector(ele);
     dialog.close();
 }
-
-
-
-// function addNewTask()
-// {
-
-//     const activeProject = active_project;
-//     const activeList = active_list;
-//     const taskNameEle = document.querySelector("#task-title");
-//     const taskDescEle = document.querySelector("#task-desc");
-
-//     const newTaskName = taskNameEle.value;
-//     const newTaskDesc = taskDescEle.value;
-
-//     const listParentProject = ProjectManager.getAllProjects()[activeProject];
-//     const taskParentList = listParentProject.getLists()[activeList];
-//     if(newTaskDesc != 0)     
-//         taskParentList.createTask(newTaskName, newTaskDesc);
-//     else
-//         taskParentList.createTask(newTaskName);
-//     const lastIndex = taskParentList.getAllTasks().length -1;
-//     populateNewtask(lastIndex, taskParentList.getAllTasks()[lastIndex].getTitle(), taskParentList.getAllTasks()[lastIndex].getDescription());
-//     const taskDialog = document.querySelector("#task-dialog");
-//     taskDialog.close();
-// }
-
-
-// // Deleting projects functionality:
 

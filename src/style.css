@@ -15,6 +15,7 @@
     --hero-font: "quicksand";
     --content-font: "cantarell";
     --font-resizer: calc(0.5rem + 0.6vw + 0.2vh);
+    --blend-color: #c3c6d113;
 }
 
 body{
@@ -297,13 +298,26 @@ img
     font-size: 1em;
     margin-right: 3%;
     opacity: 1;
-    background-color: #c3c6d1;
+    background-color: #c3c6d113;
     padding: clamp(3px, 4%, 6px);
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
+}
+button[del-list-index], button[del-project-index]
+{
+    border: none;
+}
+button[del-list-index]:hover
+{
+    background-color: var(--theme-contrast-dull);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 #all-projects li:hover .fa-trash
 {
