@@ -472,6 +472,7 @@ button[del-list-index]:hover
     font-family: var(--hero-font);
     position: absolute;
     right: 0;
+    bottom: 0;
 }
 
 #add-task

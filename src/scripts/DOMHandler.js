@@ -3,6 +3,8 @@ import { projectList,
         deleteList, 
         deleteTask,    
     } from "./crudLogicHandler";
+
+import { format, formatDistance, subDays, parseISO, compareAsc,formatDistanceToNow  } from "date-fns";
 function populateDOM(projects)
 {
     const projectBar = document.querySelector("#all-projects");
@@ -161,9 +163,11 @@ function populateListTask(tasks, todoIndex)
 {
     const listHeader = document.querySelector("#list-header");
     const listDate = document.querySelector("#date");
+    const listTime = document.querySelector("#time");
+
     const thisList =  projectList()[active_project].getLists()[todoIndex];
     listHeader.textContent = thisList.getListName();
-    listDate.textContent = thisList.getCreationDate();
+    listDate.textContent = format(thisList.getCreationDate(), "MM/dd/yyyy");
     const mainList = document.querySelector("#list");
     mainList.replaceChildren();
     // const addTaskBtn = document.querySelector("#add-task");
@@ -208,8 +212,9 @@ function populateNewtask(task, taskIndex, todoIndex)
     const dueDate = task.getDate();
     tdt.textContent = taskName;
     descEle.textContent = taskDesc;
-    dueDateEle.textContent = dueDate;
-
+    dueDateEle.textContent = formatDistanceToNow(parseISO(dueDate), {addSuffix: true});
+    console.log(formatDistance(subDays(parseISO(dueDate), compareAsc(new Date(), parseISO(dueDate))), new Date(), { addSuffix: true }))
+    console.log("Due date: ", parseISO(dueDate), "\nTodays date: ", new Date());
     tdd.appendChild(descEle);
     tdd.appendChild(dueDateEle);
     let priorityColor = choosePriorityColor(task.getPriority());
