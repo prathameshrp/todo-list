@@ -213,7 +213,7 @@ function populateNewtask(task, taskIndex, todoIndex)
     tdt.textContent = taskName;
     descEle.textContent = taskDesc;
     dueDateEle.textContent = formatDistanceToNow(parseISO(dueDate), {addSuffix: true});
-    console.log(formatDistance(subDays(parseISO(dueDate), compareAsc(new Date(), parseISO(dueDate))), new Date(), { addSuffix: true }))
+    // console.log(formatDistance(subDays(parseISO(dueDate), compareAsc(new Date(), parseISO(dueDate))), new Date(), { addSuffix: true }))
     console.log("Due date: ", parseISO(dueDate), "\nTodays date: ", new Date());
     tdd.appendChild(descEle);
     tdd.appendChild(dueDateEle);

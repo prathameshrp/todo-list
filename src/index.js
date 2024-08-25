@@ -43,6 +43,8 @@ const runApp = (function (doc){
     const addTaskButton = doc.querySelector("#add-task");
     addTaskButton.addEventListener("click", (e)=>{
         e.stopPropagation();
+        const today = new Date();
+        document.querySelector("#task-date").value = today.toISOString().substr(0, 10);
         if(projectList().length != 0 && projectList()[active_project].getLists() != 0)
         openModal("#task-dialog");
     })
