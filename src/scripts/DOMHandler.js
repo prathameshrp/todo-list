@@ -168,6 +168,11 @@ function populateListTask(tasks, todoIndex)
     const thisList =  projectList()[active_project].getLists()[todoIndex];
     listHeader.textContent = thisList.getListName();
     listDate.textContent = format(thisList.getCreationDate(), "MM/dd/yyyy");
+    listTime.textContent = thisList.getCreationDate().toLocaleTimeString(undefined, {
+        hour:   '2-digit',
+        minute: '2-digit',
+    });
+
     const mainList = document.querySelector("#list");
     mainList.replaceChildren();
     // const addTaskBtn = document.querySelector("#add-task");
