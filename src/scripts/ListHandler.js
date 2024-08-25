@@ -30,6 +30,7 @@ class ToDoList
     }
     deleteToDo(index)
     {
+        if(this.#todoTaksInThisList.length === 0) return;
         this.#todoTaksInThisList.splice(index, 1);
     }
 }

@@ -210,9 +210,11 @@ function populateNewtask(task, taskIndex, todoIndex)
 
     tdt.addEventListener("click", (e)=>
     {
-        deleteTask(active_project, active_list, taskIndex);
+        deleteTask(active_project, todoIndex, taskIndex);
         tdt.remove();
         tdd.remove();
+        populateListTask(projectList()[active_project].getLists()[todoIndex].getAllTasks(), todoIndex);
+        // tdt.style.textDecoration = "line-through";
     });
 }
 
