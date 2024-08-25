@@ -327,7 +327,7 @@ button[del-list-index]:hover
 
 #all-projects li:last-child
 {
-    opacity: 0.6;
+    opacity: 0.3;
 }
 #all-projects li:hover
 {
