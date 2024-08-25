@@ -261,6 +261,8 @@ img
     /* border: 1px solid salmon; */
     margin-top: 10%;
     font-weight: bolder;
+    padding: calc(var(--font-resizer));
+
 }
 
 #all-projects li
@@ -279,6 +281,7 @@ img
     justify-content: space-around;
     align-items: center;
     gap: 4px;
+    padding: calc(var(--font-resizer));
 }
 
 #all-projects li button
@@ -295,7 +298,8 @@ img
 {
     /*content: "X";
     */color: salmon;
-    font-size: 1em;
+    font-size: var(--font-resizer);
+    
     margin-right: 3%;
     opacity: 1;
     background-color: #c3c6d113;
@@ -376,6 +380,7 @@ button[del-list-index]:hover
 .date-and-time #date, .date-and-time #time
 {
     margin: 0 5%;
+    font-size: var(--font-resizer);
 }
 
 #list-container
@@ -470,8 +475,9 @@ button[del-list-index]:hover
 {
     font-size: calc(var(--font-resizer) - 0.2em);
     font-family: var(--hero-font);
-    position: absolute;
-    right: 0;
+    position: relative;
+    margin-top: 10%;
+    right: -70%;
     bottom: 0;
 }
 
