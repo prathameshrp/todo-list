@@ -196,6 +196,8 @@ function populateNewtask(task, taskIndex, todoIndex)
     const mainList = document.querySelector("#list");
     const addTaskBtn = document.querySelector("#add-task");
     const tdt = document.createElement('dt');
+    const descEle = document.createElement('span');
+    const dueDateEle = document.createElement('span');
     const tdd = document.createElement('dd');
     const span = document.createElement('span');
     tdt.setAttribute("task-index", taskIndex);
@@ -203,9 +205,13 @@ function populateNewtask(task, taskIndex, todoIndex)
     console.log(task);
     const taskName = task.getTitle();
     const taskDesc = task.getDescription();
+    const dueDate = task.getDate();
     tdt.textContent = taskName;
-    tdd.textContent = taskDesc;
+    descEle.textContent = taskDesc;
+    dueDateEle.textContent = dueDate;
 
+    tdd.appendChild(descEle);
+    tdd.appendChild(dueDateEle);
     let priorityColor = choosePriorityColor(task.getPriority());
     
     console.log("The task is: ", task, "\n The task priority is:", task.getPriority(), "\ncolor is:", priorityColor);
