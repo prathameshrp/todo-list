@@ -9,19 +9,19 @@
                         {
                             "name": "Create To Dos",
                             "description": "Easy to create",
-                            "priority": null,
+                            "priority": 0,
                             "due_date": null
                         },
                         {
                             "name": "Manage To Dos",
                             "description": "Effectively manage ToDos",
-                            "priority": null,
+                            "priority": 1,
                             "due_date": null
                         },
                         {
                             "name": "Set Descriptions",
                             "description": "Like This, Lorem Ipsum? Hyderate yourself",
-                            "priority": null,
+                            "priority": 2,
                             "due_date": null
                         }
                     ]
@@ -32,13 +32,13 @@
                         {
                             "name": "Drink Water",
                             "description": "Keep yourself hydrated",
-                            "priority": null,
+                            "priority": 3,
                             "due_date": null
                         },
                         {
                             "name": "Run for 30mins",
                             "description": "Be fit, be active, and survive",
-                            "priority": null,
+                            "priority": 2,
                             "due_date": null
                         }
                     ]
@@ -49,13 +49,13 @@
                         {
                             "name": "Buy Milk",
                             "description": "Essential",
-                            "priority": null,
+                            "priority": 1,
                             "due_date": null
                         },
                         {
                             "name": "Cook breakfast",
                             "description": "Try to make it tasty, and some for me please",
-                            "priority": null,
+                            "priority": 0,
                             "due_date": null
                         }
                     ]
@@ -71,13 +71,13 @@
                         {
                             "name": "Study Biology",
                             "description": "At least for 30mins",
-                            "priority": null,
+                            "priority": 1,
                             "due_date": null
                         },
                         {
                             "name": "Lie on floor",
                             "description": "Think about life",
-                            "priority": null,
+                            "priority": 3,
                             "due_date": null
                         }
                     ]
@@ -88,13 +88,13 @@
                         {
                             "name": "Attend lectures",
                             "description": "Even though you don't feel like",
-                            "priority": null,
+                            "priority": 2,
                             "due_date": null
                         },
                         {
                             "name": "Buy something sweet",
                             "description": "Preferably pineapple pastry",
-                            "priority": null,
+                            "priority": 0,
                             "due_date": null
                         }
                     ]
@@ -105,7 +105,7 @@
                         {
                             "name": "Enjoy Holidays",
                             "description": "Until you got time",
-                            "priority": null,
+                            "priority": 1 ,
                             "due_date": null
                         }
                     ]

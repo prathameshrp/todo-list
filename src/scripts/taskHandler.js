@@ -36,7 +36,7 @@ class ToDoTask
 
     getPriority()
     {
-        return this.#decidePriority();
+        return this.#priority;
     }
     getTitle()
     {
@@ -52,7 +52,7 @@ class ToDoTask
         return this.#description;
     }
 
-    #decidePriority()
+    decidePriority()
     {
         let priorityText;
         switch (this.#priority) {

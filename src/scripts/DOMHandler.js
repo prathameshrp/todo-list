@@ -197,6 +197,7 @@ function populateNewtask(task, taskIndex, todoIndex)
     const addTaskBtn = document.querySelector("#add-task");
     const tdt = document.createElement('dt');
     const tdd = document.createElement('dd');
+    const span = document.createElement('span');
     tdt.setAttribute("task-index", taskIndex);
     addTaskBtn.setAttribute("active-list", todoIndex);
     console.log(task);
@@ -204,6 +205,14 @@ function populateNewtask(task, taskIndex, todoIndex)
     const taskDesc = task.getDescription();
     tdt.textContent = taskName;
     tdd.textContent = taskDesc;
+
+    let priorityColor = choosePriorityColor(task.getPriority());
+    console.log(task.getPriority());
+    span.style.borderColor = priorityColor;
+    // span.style.backgroundColor = priorityColor;
+    
+    span.style.setProperty("--priority-color", priorityColor);
+    tdt.appendChild(span);
 
     mainList.appendChild(tdt);
     mainList.appendChild(tdd);
@@ -216,6 +225,22 @@ function populateNewtask(task, taskIndex, todoIndex)
     });
 }
 
+function choosePriorityColor(priority)
+{
+    switch (priority) {
+        case 0:
+            return "#fa8072";
+        
+        case 1:
+            return "#faaf72";
+        case 2:
+            return "#e8ea72";
+        case 3:
+            return "#7dfa72";
+        default:
+            break;
+    }
+}
 function deleteFromDOM(ele, index) {
     const li = document.querySelector(`[${ele}-index="${index}"]`);
     if(li)

@@ -424,18 +424,22 @@ button[del-list-index]:hover
     width: 90%;
     word-wrap: break-word;
 }
-#list dt::before
+#list dt span
 {
-    content: " ";
     height: clamp(10px, 2vw, 15px);
     width: clamp(10px, 2vw, 15px);
-    border: 2px solid salmon;
+    border: 2px solid;
+    
     border-radius: 50%;
     position: absolute;
     left: 0;
     top: calc(clamp(10px, 2vw, 15px)/2);
 }
-
+#list dt span:hover
+{
+    background-color: var(--theme-substitue-color);
+    background-color: var(--priority-color);
+}
 #list dd
 {
     margin: 3% clamp(30px, 5vw, 40px);
