@@ -52,29 +52,29 @@ class ToDoTask
         return this.#description;
     }
 
-    decidePriority()
-    {
-        let priorityText;
-        switch (this.#priority) {
-            case 0:
-                priorityText = 'urgent';
-                break;
-            case 1:
-                priorityText = 'important';
-                break;
-            case 2:
-                priorityText = 'necessary';
-                break;
-            case 3:
-                priorityText = 'trivial';
-                break;
-            default:
-                priorityText = 'Not Defined';
-                break;
-        }
+    // #decidePriority()
+    // {
+    //     let priorityText;
+    //     switch (this.#priority) {
+    //         case 0:
+    //             priorityText = 'urgent';
+    //             break;
+    //         case 1:
+    //             priorityText = 'important';
+    //             break;
+    //         case 2:
+    //             priorityText = 'necessary';
+    //             break;
+    //         case 3:
+    //             priorityText = 'trivial';
+    //             break;
+    //         default:
+    //             priorityText = 'Not Defined';
+    //             break;
+    //     }
 
-        return priorityText;
-    }
+    //     return priorityText;
+    // }
 }
 
 // Note for self:

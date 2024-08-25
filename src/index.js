@@ -85,7 +85,9 @@ const runApp = (function (doc){
     // add task to backend logic:
     const taskName = returnEleVal("#task-title");
     const taskDesc = returnEleVal("#task-desc");
-    addNewTask(taskName, taskDesc);
+    const taskDate = returnEleVal("#task-date");
+    const taskPrior = returnEleVal("#priority");
+    addNewTask(taskName, taskDesc, taskDate, taskPrior);
         const index = projectList()[active_project].getLists()[active_list].getAllTasks().length -1;
         const task =  projectList()[active_project].getLists()[active_list].getAllTasks()[index]
         populateNewtask(task, index, active_list);

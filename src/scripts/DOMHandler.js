@@ -207,7 +207,9 @@ function populateNewtask(task, taskIndex, todoIndex)
     tdd.textContent = taskDesc;
 
     let priorityColor = choosePriorityColor(task.getPriority());
-    console.log(task.getPriority());
+    
+    console.log("The task is: ", task, "\n The task priority is:", task.getPriority(), "\ncolor is:", priorityColor);
+    
     span.style.borderColor = priorityColor;
     // span.style.backgroundColor = priorityColor;
     
@@ -230,7 +232,6 @@ function choosePriorityColor(priority)
     switch (priority) {
         case 0:
             return "#fa8072";
-        
         case 1:
             return "#faaf72";
         case 2:

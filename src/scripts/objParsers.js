@@ -7,7 +7,7 @@ function parseTaskObj(task) {
     const newTask = new ToDoTask(task["name"]);
     newTask.setDescription(task["description"]);
     newTask.setDate(task["due_date"]);
-    newTask.setPriority(task["priority"]);
+    newTask.setPriority(parseInt(task["priority"]));
 
     return newTask;
 }
