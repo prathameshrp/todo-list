@@ -44,7 +44,7 @@ class ProjectManager
 }
 
 
-//IIFE to insert default content in the ProjecrManager
+//IIFE to insert default content in the ProjectManager
 
 function insertDefaultProjects()
 {
@@ -87,6 +87,7 @@ function addNewProject(newProjectName)
     const newProject =  parseProjectObj({"name": newProjectName});
     
     ProjectManager.addProject(newProject);
+    localStorage.setItem(`${newProject}`, JSON.stringify(newProject));
 
 }
 function addNewList(newListName) {
