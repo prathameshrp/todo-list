@@ -4,7 +4,7 @@ import { projectList,
         deleteTask,    
     } from "./crudLogicHandler";
 
-import { format, formatDistance, subDays, parseISO, compareAsc,formatDistanceToNow  } from "date-fns";
+import { format, parseISO,formatDistanceToNow  } from "date-fns";
 function populateDOM(projects)
 {
     const projectBar = document.querySelector("#all-projects");
@@ -69,6 +69,7 @@ function populateNewProject(project, index)
     projectBar.insertBefore(pli, addProjectBtn);
 
     setEventsToProject(project, index);
+    
 
 }
 

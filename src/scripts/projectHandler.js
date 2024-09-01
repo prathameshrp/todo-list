@@ -4,31 +4,32 @@
 
 class Project
 {
-    #projectName;
-    #todoListsInThisProject = [];
+    // projectName;
+    
     constructor(projectName = "New Project")
     {
-        this.#projectName = projectName;
+        this.projectName = projectName;
+        this.todoListsInThisProject = [];
     }
 
     createList(listObj) {
-        this.#todoListsInThisProject.push(listObj);
+        this.todoListsInThisProject.push(listObj);
     }
     
     getProjectName()
     {
-        return this.#projectName;
+        return this.projectName;
     }
 
     getLists()
     {
-        return this.#todoListsInThisProject;
+        return this.todoListsInThisProject;
     }
 
     deleteList(index)
     {
-        if(this.#todoListsInThisProject.length === 0) return;
-        this.#todoListsInThisProject.splice(index, 1);
+        if(this.todoListsInThisProject.length === 0) return;
+        this.todoListsInThisProject.splice(index, 1);
         
     }
     deleteTaskFromList(listIndex, taskIndex)

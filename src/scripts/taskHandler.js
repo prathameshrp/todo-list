@@ -2,10 +2,10 @@
 // reponsibility: read and write tasks
 class ToDoTask
 {
-    #taskName;
-    #description;
-    #dueDate;
-    #priority; 
+    // #taskName;
+    // #description;
+    // #dueDate;
+    // #priority; 
     /*
     Priority levels:
     0 - Urgent
@@ -16,40 +16,40 @@ class ToDoTask
     
     constructor(taskName = "New Task")
     {
-        this.#taskName = taskName;
+        this.taskName = taskName;
     }
 
     setDescription(description = "Do X before Y...")
     {
-        this.#description = description;
+        this.description = description;
     }
 
     setDate(date = new Date())
     {
-        this.#dueDate = date;
+        this.dueDate = date;
     }
 
     setPriority(priority = 2)
     {
-        this.#priority = priority;
+        this.priority = priority;
     }
 
     getPriority()
     {
-        return this.#priority;
+        return this.priority;
     }
     getTitle()
     {
-        return this.#taskName;
+        return this.taskName;
     }
     getDate()
     {
-        return this.#dueDate;
+        return this.dueDate;
     }
 
     getDescription()
     {
-        return this.#description;
+        return this.description;
     }
 
     // #decidePriority()

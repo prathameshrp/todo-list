@@ -50,6 +50,7 @@ function insertDefaultProjects()
 {
     const data = defaultContent;
     
+    let i = 0;
     data["projects"].forEach(project => {
         
         
@@ -69,7 +70,8 @@ function insertDefaultProjects()
             newProject.createList(newList);
         })
         ProjectManager.addProject(newProject);
-
+        localStorage.setItem(`project-${i}`, JSON.stringify(newProject));
+        ++i;
     });
 };
 
