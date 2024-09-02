@@ -90,7 +90,7 @@ function addNewProject(newProjectName)
     const newProject =  parseProjectObj({"name": newProjectName});
     
     ProjectManager.addProject(newProject);
-    localStorage.setItem(`${newProject}`, JSON.stringify(newProject));
+    localStorage.setItem(`project_${projectList().length-1}`, newProject.toJSON());
 
 }
 function addNewList(newListName) {
@@ -98,7 +98,7 @@ function addNewList(newListName) {
     projectList()[active_project].createList(newList);
 
     // localStorage.setItem(`project_${active_project}_list_${projectList()[active_project].getLists().length}`, JSON.stringify(newList));
-    localStorage.setItem(`project_${active_project}`, JSON.stringify(projectList()[active_project]));
+    localStorage.setItem(`project_${active_project}`, projectList()[active_project].toJSON());
 
 }
 
@@ -111,6 +111,9 @@ function addNewTask(taskName, taskDesc, date = new Date(), priority = 2) {
     })
 
     projectList()[active_project].getLists()[active_list].createTask(newTask);
+
+    localStorage.setItem(`project_${active_project}`, projectList()[active_project].toJSON());
+
 }
 
 function deleteProject(index) {
