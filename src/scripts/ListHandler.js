@@ -3,35 +3,37 @@
 class ToDoList
 {
     
+    #listName;
+    #createdDate;
+    #todoTaksInThisList = [];
     
     constructor(listName = "New List")
     {
-        this.listName = listName;
-        this.createdDate = new Date();
-        this.todoTaksInThisList = [];
+        this.#listName = listName;
+        this.#createdDate = new Date();
     }
 
     createTask(taskObj) {
         // const Obj = promptUser();
-        this.todoTaksInThisList.push(taskObj);
+        this.#todoTaksInThisList.push(taskObj);
     }
 
     getAllTasks()
     {
-        return this.todoTaksInThisList;
+        return this.#todoTaksInThisList;
     }
     getListName()
     {
-        return this.listName;
+        return this.#listName;
     }
     getCreationDate()
     {
-        return this.createdDate;
+        return this.#createdDate;
     }
     deleteToDo(index)
     {
-        if(this.todoTaksInThisList.length === 0) return;
-        this.todoTaksInThisList.splice(index, 1);
+        if(this.#todoTaksInThisList.length === 0) return;
+        this.#todoTaksInThisList.splice(index, 1);
     }
 }
 

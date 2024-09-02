@@ -70,7 +70,8 @@ function insertDefaultProjects()
             newProject.createList(newList);
         })
         ProjectManager.addProject(newProject);
-        localStorage.setItem(`project-${i}`, JSON.stringify(newProject));
+        console.log(newProject.toJSON());
+        localStorage.setItem(`project_${i}`, newProject.toJSON());
         ++i;
     });
 };
@@ -95,6 +96,10 @@ function addNewProject(newProjectName)
 function addNewList(newListName) {
     const newList = parseListObj({"name": newListName});
     projectList()[active_project].createList(newList);
+
+    // localStorage.setItem(`project_${active_project}_list_${projectList()[active_project].getLists().length}`, JSON.stringify(newList));
+    localStorage.setItem(`project_${active_project}`, JSON.stringify(projectList()[active_project]));
+
 }
 
 function addNewTask(taskName, taskDesc, date = new Date(), priority = 2) {
