@@ -41,10 +41,22 @@ class Project
 
     toJSON()
     {
+        const methods = {};
+        for(let key of Object.getOwnPropertyNames(Project.prototype))
+        {
+            if(key !== "constructor" && typeof this[key] == "function")
+            {
+                methods[key] = this[key].toString();
+            }
+            console.log("Hey look here, hey look here hey look here", key);
+        }
+        const todos = this.#todoListsInThisProject.map(element => element.toJSON());
         return JSON.stringify(
             {
                 projectName: this.#projectName,
-                todoListsInThisProject: this.#todoListsInThisProject
+                todoListsInThisProject: todos,
+                methods: methods,
+
             }
         );
     }

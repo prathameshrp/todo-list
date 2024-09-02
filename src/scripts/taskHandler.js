@@ -52,6 +52,27 @@ class ToDoTask
         return this.#description;
     }
 
+    toJSON()
+    {
+        const methods = {};
+        for(let key of Object.getOwnPropertyNames(ToDoTask.prototype))
+        {
+            if(key !== "constructor" && typeof this[key] == "function")
+            {
+                methods[key] = this[key].toString();
+            }
+        }
+        return JSON.stringify(
+            {
+                taskName: this.#taskName,
+                description: this.#description,
+                priority: this.#priority,
+                dueDate: this.#dueDate,
+                methods: methods,
+
+            }
+        );
+    }
     // #decidePriority()
     // {
     //     let priorityText;
