@@ -137,11 +137,17 @@ function deleteProject(index) {
 function deleteList(projectIndex, listIndex) {
     ProjectManager.deleteList(projectIndex, listIndex);
     console.log(projectList());
+    let index = projectIndex;
+    while(localStorage.getItem(`project_${index}`) == null) ++index;
+    localStorage.setItem(`project_${index}`, projectList()[projectIndex].toJSON());
 }
 
 function deleteTask(projectIndex, listIndex, taskIndex) {
     ProjectManager.deleteTask(projectIndex, listIndex, taskIndex);
     console.log(projectList());
+    let index = projectIndex;
+    while(localStorage.getItem(`project_${index}`) == null) ++index;
+    localStorage.setItem(`project_${index}`, projectList()[projectIndex].toJSON());
 }
 
 function storedProjects()
