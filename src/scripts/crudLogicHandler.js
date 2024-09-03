@@ -88,7 +88,11 @@ function addNewProject(newProjectName)
 
 //add to ProjectManager:
  
-    const newProject =  parseProjectObj({"name": newProjectName});
+    const newProject =  parseProjectObj({
+        "name": newProjectName,
+        "todoListsInThisProject": [],
+
+    });
     
     ProjectManager.addProject(newProject);
     localStorage.setItem(`project_${projectList().length-1}`, newProject.toJSON());
@@ -138,15 +142,15 @@ function deleteTask(projectIndex, listIndex, taskIndex) {
 
 function storedProjects()
 {
-    const projects = [];
+    
     let i = 0;
     while(localStorage.getItem(`project_${i}`) != null)
     {
-        projects.push(parseProjectJson(localStorage.getItem(`project_${i}`)));
+        ProjectManager.addProject(parseProjectJson(localStorage.getItem(`project_${i}`)));
         ++i;
     }
 
-    return projects;
+    return projectList();
 }
 export {
     insertDefaultProjects,

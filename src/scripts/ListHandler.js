@@ -34,7 +34,8 @@ class ToDoList
     }
     getCreationDate()
     {
-        return this.#createdDate;
+        
+        return new Date(this.#createdDate);
     }
     deleteToDo(index)
     {
@@ -57,7 +58,7 @@ class ToDoList
         return JSON.stringify(
             {
                 name: this.#listName,
-                tasks: totasks,
+                todoTasksInThisList: totasks,
                 createdDate: this.#createdDate,
                 methods: methods,
 

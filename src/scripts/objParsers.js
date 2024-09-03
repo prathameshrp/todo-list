@@ -34,7 +34,7 @@ function parseProjectObj(project)
 function parseProjectJson(projectJson) {
     const data = JSON.parse(projectJson);
     const project = new Project(data.projectName);
-    data.todoListsInThisProject.forEach(list => {
+    data["todoListsInThisProject"].forEach(list => {
         const newList = parseListObj(JSON.parse(list));
         project.createList(newList);
     });

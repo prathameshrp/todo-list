@@ -166,9 +166,14 @@ function populateListTask(tasks, todoIndex)
     const listDate = document.querySelector("#date");
     const listTime = document.querySelector("#time");
 
+    console.log(projectList());
     const thisList =  projectList()[active_project].getLists()[todoIndex];
     listHeader.textContent = thisList.getListName();
     listDate.textContent = format(thisList.getCreationDate(), "MM/dd/yyyy");
+    console.log(thisList.getCreationDate());
+
+    console.log(typeof thisList.getCreationDate());
+
     listTime.textContent = thisList.getCreationDate().toLocaleTimeString(undefined, {
         hour:   '2-digit',
         minute: '2-digit',

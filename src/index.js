@@ -22,7 +22,7 @@ import { insertDefaultProjects,
 
 
 // insertDefaultProjects();
-// populateDOM(storedProjects());
+populateDOM(storedProjects());
 
 
 const runApp = (function (doc){
