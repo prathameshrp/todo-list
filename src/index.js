@@ -20,8 +20,9 @@ import { insertDefaultProjects,
 } from "./scripts/crudLogicHandler.js";
 
 
+if(localStorage.length == 0)
+    insertDefaultProjects();
 
-insertDefaultProjects();
 storedProjects();
 populateDOM(projectList());
 
@@ -99,6 +100,13 @@ const runApp = (function (doc){
         closeDialog("#task-dialog");
 
     });
+
+    const reset = document.querySelector("#resetStorage");
+    reset.addEventListener("click", (e)=>
+    {
+        localStorage.clear();
+        location.reload();
+    })
 
 
 
