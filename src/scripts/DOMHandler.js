@@ -223,6 +223,11 @@ function populateNewtask(task, taskIndex, todoIndex)
     const dueDate = task.getDate();
     tdt.textContent = taskName;
     descEle.textContent = taskDesc;
+    console.log(dueDate);
+    console.log(typeof dueDate);
+    console.log(dueDate.toString());
+
+    console.log(parseISO("2024-08-22"));
     dueDateEle.textContent = formatDistanceToNow(parseISO(dueDate), {addSuffix: true});
     // console.log(formatDistance(subDays(parseISO(dueDate), compareAsc(new Date(), parseISO(dueDate))), new Date(), { addSuffix: true }))
     console.log("Due date: ", parseISO(dueDate), "\nTodays date: ", new Date());

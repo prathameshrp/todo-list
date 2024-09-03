@@ -21,8 +21,9 @@ import { insertDefaultProjects,
 
 
 
-// insertDefaultProjects();
-populateDOM(storedProjects());
+insertDefaultProjects();
+storedProjects();
+populateDOM(projectList());
 
 
 const runApp = (function (doc){

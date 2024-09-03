@@ -54,7 +54,7 @@ class Project
         const todos = this.#todoListsInThisProject.map(element => element.toJSON());
         return JSON.stringify(
             {
-                projectName: this.#projectName,
+                name: this.#projectName,
                 todoListsInThisProject: todos,
                 methods: methods,
 

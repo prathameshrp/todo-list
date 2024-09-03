@@ -55,24 +55,26 @@ function insertDefaultProjects()
     data["projects"].forEach(project => {
         
         
-        const newProject = parseProjectObj(project);
+        const newProject = parseProjectJson(JSON.stringify(project));
 
-        const lists = project["lists"];
+        // const lists = project["todoListsInThisProject"];
 
-        lists.forEach(list => {
-            const newList = parseListObj(list);
-            const tasks = list["tasks"];
+        // lists.forEach(list => {
+        //     const newList = parseListObj(JSON.parse(list));
+        //     const tasks = newlist["todoTasksInThisList"];
             
-            tasks.forEach(task => {
-                const newTask = parseTaskObj(task);
-                newList.createTask(newTask);
-            });
+        //     tasks.forEach(task => {
+        //         const newTask = parseTaskObj(task);
+        //         newList.createTask(newTask);
+        //     });
 
-            newProject.createList(newList);
-        })
-        ProjectManager.addProject(newProject);
+        //     newProject.createList(newList);
+        // })
+        // ProjectManager.addProject(newProject);
         console.log(newProject.toJSON());
-        localStorage.setItem(`project_${i}`, newProject.toJSON());
+        // addNewProject(newProject);
+    localStorage.setItem(`project_${i}`, newProject.toJSON());
+
         ++i;
     });
 };
@@ -143,14 +145,16 @@ function deleteTask(projectIndex, listIndex, taskIndex) {
 function storedProjects()
 {
     
+    const projects = [];
     let i = 0;
     while(localStorage.getItem(`project_${i}`) != null)
     {
-        ProjectManager.addProject(parseProjectJson(localStorage.getItem(`project_${i}`)));
+        const newProject = parseProjectJson(localStorage.getItem(`project_${i}`));
+        console.log("This I am talking about:", newProject);
+        ProjectManager.addProject(newProject);
         ++i;
     }
 
-    return projectList();
 }
 export {
     insertDefaultProjects,

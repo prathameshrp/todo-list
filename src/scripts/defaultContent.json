@@ -2,114 +2,18 @@
     "projects": [
         {
             "name": "Neo.do",
-            "lists": [
-                {
-                    "name": "Productivity",
-                    "tasks": [
-                        {
-                            "name": "Create To Dos",
-                            "description": "Easy to create",
-                            "priority": 0,
-                            "due_date": "2024-08-22"
-                        },
-                        {
-                            "name": "Manage To Dos",
-                            "description": "Effectively manage ToDos",
-                            "priority": 1,
-                            "due_date": "2024-08-22"
-                        },
-                        {
-                            "name": "Set Descriptions",
-                            "description": "Like This, Lorem Ipsum? Hyderate yourself",
-                            "priority": 2,
-                            "due_date": "2024-08-22"
-                        }
-                    ]
-                },
-                {
-                    "name": "Exercise",
-                    "tasks": [
-                        {
-                            "name": "Drink Water",
-                            "description": "Keep yourself hydrated",
-                            "priority": 3,
-                            "due_date": "2024-08-22"
-                        },
-                        {
-                            "name": "Run for 30mins",
-                            "description": "Be fit, be active, and survive",
-                            "priority": 2,
-                            "due_date": "2024-08-22"
-                        }
-                    ]
-                },
-                {
-                    "name": "Dailies",
-                    "tasks": [
-                        {
-                            "name": "Buy Milk",
-                            "description": "Essential",
-                            "priority": 1,
-                            "due_date": "2024-08-22"
-                        },
-                        {
-                            "name": "Cook breakfast",
-                            "description": "Try to make it tasty, and some for me please",
-                            "priority": 0,
-                            "due_date": "2024-08-22"
-                        }
-                    ]
-                }
+            "todoListsInThisProject": [
+                "{\"name\":\"Productivity\",\"todoTasksInThisList\":[\"{\\\"name\\\":\\\"Create To Dos\\\",\\\"description\\\":\\\"Easy to create\\\",\\\"priority\\\":0,\\\"due_date\\\":\\\"2024-08-22\\\"}\",\"{\\\"name\\\":\\\"Manage To Dos\\\",\\\"description\\\":\\\"Effectively manage ToDos\\\",\\\"priority\\\":1,\\\"due_date\\\":\\\"2024-08-22\\\"}\",\"{\\\"name\\\":\\\"Set Descriptions\\\",\\\"description\\\":\\\"Like This, Lorem Ipsum? Doler commet\\\",\\\"priority\\\":2,\\\"due_date\\\":\\\"2024-08-22\\\"}\"],\"createdDate\":\"2024-08-22\"}",
+                "{\"name\":\"Exercise\",\"todoTasksInThisList\":[\"{\\\"name\\\":\\\"Drink Water\\\",\\\"description\\\":\\\"Keep yourself hydrated\\\",\\\"priority\\\":3,\\\"due_date\\\":\\\"2024-08-22\\\"}\",\"{\\\"name\\\":\\\"Run for 30mins\\\",\\\"description\\\":\\\"Be fit, be active, and survive\\\",\\\"priority\\\":2,\\\"due_date\\\":\\\"2024-08-22\\\"}\"],\"createdDate\":\"2024-08-22\"}",
+                "{\"name\":\"Dailies\",\"todoTasksInThisList\":[\"{\\\"name\\\":\\\"Buy Milk\\\",\\\"description\\\":\\\"Essential\\\",\\\"priority\\\":1,\\\"due_date\\\":\\\"2024-08-22\\\"}\",\"{\\\"name\\\":\\\"Cook breakfast\\\",\\\"description\\\":\\\"Try to make it tasty, and some for me please\\\",\\\"priority\\\":0,\\\"due_date\\\":\\\"2024-08-22\\\"}\"],\"createdDate\":\"2024-08-22\"}"
             ]
         },
         {
             "name": "Default",
-            "lists": [
-                {
-                    "name": "Today",
-                    "tasks": [
-                        {
-                            "name": "Study Biology",
-                            "description": "At least for 30mins",
-                            "priority": 1,
-                            "due_date": "2024-08-22"
-                        },
-                        {
-                            "name": "Lie on floor",
-                            "description": "Think about life",
-                            "priority": 3,
-                            "due_date": "2024-08-22"
-                        }
-                    ]
-                },
-                {
-                    "name": "Tomorrow",
-                    "tasks": [
-                        {
-                            "name": "Attend lectures",
-                            "description": "Even though you don't feel like",
-                            "priority": 2,
-                            "due_date": "2024-08-22"
-                        },
-                        {
-                            "name": "Buy something sweet",
-                            "description": "Preferably pineapple pastry",
-                            "priority": 0,
-                            "due_date": "2024-08-22"
-                        }
-                    ]
-                },
-                {
-                    "name": "Weekly Todos'",
-                    "tasks": [
-                        {
-                            "name": "Enjoy Holidays",
-                            "description": "Until you got time",
-                            "priority": 1 ,
-                            "due_date": "2024-08-22"
-                        }
-                    ]
-                }
+            "todoListsInThisProject": [
+                "{\"name\":\"Today\",\"todoTasksInThisList\":[\"{\\\"name\\\":\\\"Study Biology\\\",\\\"description\\\":\\\"At least for 30mins\\\",\\\"priority\\\":1,\\\"due_date\\\":\\\"2024-08-22\\\"}\",\"{\\\"name\\\":\\\"Lie on floor\\\",\\\"description\\\":\\\"Think about life\\\",\\\"priority\\\":3,\\\"due_date\\\":\\\"2024-08-22\\\"}\"],\"createdDate\":\"2024-08-22\"}",
+                "{\"name\":\"Tomorrow\",\"todoTasksInThisList\":[\"{\\\"name\\\":\\\"Attend lectures\\\",\\\"description\\\":\\\"Even though you don't feel like\\\",\\\"priority\\\":2,\\\"due_date\\\":\\\"2024-08-22\\\"}\",\"{\\\"name\\\":\\\"Buy something sweet\\\",\\\"description\\\":\\\"Preferably pineapple pastry\\\",\\\"priority\\\":0,\\\"due_date\\\":\\\"2024-08-22\\\"}\"],\"createdDate\":\"2024-08-22\"}",
+                "{\"name\":\"Weekly Todos'\",\"todoTasksInThisList\":[\"{\\\"name\\\":\\\"Enjoy Holidays\\\",\\\"description\\\":\\\"Until you got time\\\",\\\"priority\\\":1,\\\"due_date\\\":\\\"2024-08-22\\\"}\"],\"createdDate\":\"2024-08-22\"}"
             ]
         }
     ]

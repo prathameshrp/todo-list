@@ -19,6 +19,9 @@ function parseListObj(list) {
 
     console.log(list)
     list["todoTasksInThisList"].forEach(todo => {
+        console.log("To do here, To do here, To do here, To do here \n\n", todo);
+        console.log("This is type of todo", typeof todo);
+        console.log(JSON.parse(todo));
         const newToDo = parseTaskObj(JSON.parse(todo));
         newList.createTask(newToDo);
     });
@@ -33,8 +36,12 @@ function parseProjectObj(project)
 }
 function parseProjectJson(projectJson) {
     const data = JSON.parse(projectJson);
-    const project = new Project(data.projectName);
+    const project = new Project(data.name);
+    console.log("These are the form of lists: ", data["todoListsInThisProject"]);
     data["todoListsInThisProject"].forEach(list => {
+        console.log("Blah BlahBlahBlahBlahBlahBlahBlahBlah",list);
+        console.log(JSON.parse(list));
+
         const newList = parseListObj(JSON.parse(list));
         project.createList(newList);
     });
