@@ -1,4 +1,5 @@
 import "../assets/fonts/stylesheet.css"
+import "./modalStyles.css"
 import "./style.css"
 
 import {
