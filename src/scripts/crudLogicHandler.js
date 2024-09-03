@@ -129,6 +129,8 @@ function addNewTask(taskName, taskDesc, date = new Date(), priority = 2) {
 
 function deleteProject(index) {
     ProjectManager.deleteProject(index);
+    while(localStorage.getItem(`project_${index}`) == null) ++index;
+    localStorage.removeItem(`project_${index}`);
     console.log(projectList());
 }
 
@@ -144,15 +146,19 @@ function deleteTask(projectIndex, listIndex, taskIndex) {
 
 function storedProjects()
 {
-    
-    const projects = [];
+
     let i = 0;
-    while(localStorage.getItem(`project_${i}`) != null)
+    let j = 0;
+    while(i<localStorage.length)
     {
-        const newProject = parseProjectJson(localStorage.getItem(`project_${i}`));
+        if(localStorage.getItem(`project_${j}`) != null)
+        {
+        const newProject = parseProjectJson(localStorage.getItem(`project_${j}`));
         console.log("This I am talking about:", newProject);
         ProjectManager.addProject(newProject);
         ++i;
+        }
+        ++j;
     }
 
 }

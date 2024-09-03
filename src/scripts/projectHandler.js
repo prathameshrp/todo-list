@@ -14,6 +14,14 @@ class Project
         
     }
 
+    setStorageIndex(index)
+    {
+        this.StorageIndex = index;
+    }
+    getStorageIndex()
+    {
+        return this.StorageIndex;
+    }
     createList(listObj) {
         this.#todoListsInThisProject.push(listObj);
     }
@@ -56,6 +64,7 @@ class Project
             {
                 name: this.#projectName,
                 todoListsInThisProject: todos,
+                StorageIndex: this.StorageIndex,
                 methods: methods,
 
             }
