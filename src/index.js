@@ -8,6 +8,7 @@ import {
     populateNewtask,
     active_project,
     active_list,
+    
 } from "./scripts/DOMHandler.js";
 
 import { insertDefaultProjects,
@@ -15,12 +16,13 @@ import { insertDefaultProjects,
     addNewProject,
     addNewList,
     addNewTask,
+    storedProjects,
 } from "./scripts/crudLogicHandler.js";
 
 
 
-insertDefaultProjects();
-populateDOM(projectList());
+// insertDefaultProjects();
+// populateDOM(storedProjects());
 
 
 const runApp = (function (doc){

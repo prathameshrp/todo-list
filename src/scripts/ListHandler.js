@@ -1,26 +1,32 @@
 // Class to store all the to do tasks under single object
 
+import { ToDoTask } from "./taskHandler";
+
 class ToDoList
 {
     
     #listName;
     #createdDate;
-    #todoTaksInThisList = [];
+    #todoTasksInThisList = [];
     
     constructor(listName = "New List")
     {
         this.#listName = listName;
-        this.#createdDate = new Date();
+        // this.#createdDate = new Date();
     }
 
     createTask(taskObj) {
         // const Obj = promptUser();
-        this.#todoTaksInThisList.push(taskObj);
+        this.#todoTasksInThisList.push(taskObj);
     }
 
+    setDate(date = new Date())
+    {
+        this.#createdDate = date;
+    }
     getAllTasks()
     {
-        return this.#todoTaksInThisList;
+        return this.#todoTasksInThisList;
     }
     getListName()
     {
@@ -32,8 +38,8 @@ class ToDoList
     }
     deleteToDo(index)
     {
-        if(this.#todoTaksInThisList.length === 0) return;
-        this.#todoTaksInThisList.splice(index, 1);
+        if(this.#todoTasksInThisList.length === 0) return;
+        this.#todoTasksInThisList.splice(index, 1);
     }
     toJSON()
     {
@@ -47,17 +53,19 @@ class ToDoList
             // if(key == "todoTaksInThisList")
         }
         // console.log(JSON.stringify(this.#todoTaksInThisList));
-        const totasks = this.#todoTaksInThisList.map(e => e.toJSON());
+        const totasks = this.#todoTasksInThisList.map(e => e.toJSON());
         return JSON.stringify(
             {
-                listName: this.#listName,
-                todoTaksInThisList: totasks,
+                name: this.#listName,
+                tasks: totasks,
                 createdDate: this.#createdDate,
                 methods: methods,
 
             }
         );
     }
+
+   
 }
 
 // const today = new ToDoList("Today");

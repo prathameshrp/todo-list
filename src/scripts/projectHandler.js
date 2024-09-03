@@ -2,6 +2,7 @@
 
 // Responsibility: To manage all ToDo lists under a single object
 
+import { ToDoList } from "./ListHandler";
 class Project
 {
     // projectName;

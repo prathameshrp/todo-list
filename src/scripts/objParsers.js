@@ -15,6 +15,13 @@ function parseTaskObj(task) {
 function parseListObj(list) {
     const listName = list["name"];
     const newList = new ToDoList(listName);
+    newList.setDate(list["createdDate"]);
+
+    console.log(list)
+    list["todoTasksInThisList"].forEach(todo => {
+        const newToDo = parseTaskObj(JSON.parse(todo));
+        newList.createTask(newToDo);
+    });
     return newList;
 }
 
@@ -24,8 +31,18 @@ function parseProjectObj(project)
     const newProject = new Project(projectName);
     return newProject;
 }
+function parseProjectJson(projectJson) {
+    const data = JSON.parse(projectJson);
+    const project = new Project(data.projectName);
+    data.todoListsInThisProject.forEach(list => {
+        const newList = parseListObj(JSON.parse(list));
+        project.createList(newList);
+    });
+    return project;
+}
 export {
     parseTaskObj, 
     parseListObj,
     parseProjectObj,
-};
+    parseProjectJson,
+}; 

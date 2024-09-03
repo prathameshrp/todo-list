@@ -3,7 +3,8 @@ import { active_list, active_project } from "./DOMHandler";
 import { 
     parseTaskObj, 
     parseListObj,
-    parseProjectObj, 
+    parseProjectObj,
+    parseProjectJson, 
 } from "./objParsers";
 // A project manager class to store all projects under a static module
 // Responsibility: Read, Write, Delete all Projects
@@ -94,7 +95,11 @@ function addNewProject(newProjectName)
 
 }
 function addNewList(newListName) {
-    const newList = parseListObj({"name": newListName});
+    const newList = parseListObj({
+        "name": newListName,
+        "createdDate": new Date(),
+        "todoTasksInThisList": [],
+    });
     projectList()[active_project].createList(newList);
 
     // localStorage.setItem(`project_${active_project}_list_${projectList()[active_project].getLists().length}`, JSON.stringify(newList));
@@ -130,6 +135,19 @@ function deleteTask(projectIndex, listIndex, taskIndex) {
     ProjectManager.deleteTask(projectIndex, listIndex, taskIndex);
     console.log(projectList());
 }
+
+function storedProjects()
+{
+    const projects = [];
+    let i = 0;
+    while(localStorage.getItem(`project_${i}`) != null)
+    {
+        projects.push(parseProjectJson(localStorage.getItem(`project_${i}`)));
+        ++i;
+    }
+
+    return projects;
+}
 export {
     insertDefaultProjects,
     projectList,
@@ -139,4 +157,5 @@ export {
     deleteProject,
     deleteList,
     deleteTask,
+    storedProjects,
 }

@@ -64,10 +64,10 @@ class ToDoTask
         }
         return JSON.stringify(
             {
-                taskName: this.#taskName,
+                name: this.#taskName,
                 description: this.#description,
                 priority: this.#priority,
-                dueDate: this.#dueDate,
+                due_date: this.#dueDate,
                 methods: methods,
 
             }
