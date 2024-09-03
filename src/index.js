@@ -108,6 +108,12 @@ const runApp = (function (doc){
         location.reload();
     })
 
+    const allCloseBtns = document.querySelectorAll('.close-btn');
+    allCloseBtns.forEach(btn => {
+        btn.addEventListener("click", (e)=>{
+            closeDialog('#'+e.target.parentElement.parentElement.parentElement.getAttribute('id'));
+        })
+    });
 
 
 })(document);
