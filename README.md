@@ -37,5 +37,5 @@ To contribute your work -
   - Attach before and after screenshots if applicable
   - Be patient and wait for a maintainer to approve and accept your PR 
 
-- [!TIP]
+> [!TIP]
 > Happy Open Sourcing :) 
